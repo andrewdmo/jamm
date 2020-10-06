@@ -1,0 +1,12 @@
+{
+  "name": "jamm_2expo",
+  "displayName": "jamm_2expo",
+  "expo": {
+    "name": "jamm_2expo",
+    "slug": "jamm_2expo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
