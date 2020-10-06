@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jammexpo-dev-150714-authRole",
+      "UnauthRoleArn": "arn:aws:iam::304487142683:role/amplify-jammexpo-dev-150714-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::304487142683:role/amplify-jammexpo-dev-150714-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-jammexpo-dev-150714-deployment",
+      "UnauthRoleName": "amplify-jammexpo-dev-150714-unauthRole",
+      "StackName": "amplify-jammexpo-dev-150714",
+      "StackId": "arn:aws:cloudformation:us-east-1:304487142683:stack/amplify-jammexpo-dev-150714/27725650-0807-11eb-9dc2-121b03ae900d",
+      "AmplifyAppId": "d7uxkthpl4d1i"
+    }
+  }
+}
