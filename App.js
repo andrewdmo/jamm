@@ -1,36 +1,23 @@
 import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
-import MapView from 'react-native-maps';
+import {View} from 'react-native';
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+import IndexTop from './src/components/IndexTop';
+import IndexMiddle from './src/components/IndexMiddle';
+import MapRN from './src/components/MapRN';
+
+import styles from './src/assets/jammStyle';
+
+Amplify.configure(config);
 
 export default function App() {
-  return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <MapView
-            style={styles.mapStyle}
-            initialRegion={{
-              latitude: 35.594722,
-              longitude: -82.554167,
-              latitudeDelta: 1,      // 1 deg lat ~ 70 mi
-              longitudeDelta: 1
-            }}
-        />
-        <StatusBar style="auto"/>
-      </View>
-  );
+    return (
+        <View style={styles.container}>
+            <MapRN/>
+            <IndexTop/>
+            <IndexMiddle/>
+            <StatusBar style="auto"/>
+        </View>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mapStyle: {
-    flex: 1,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  }
-});
