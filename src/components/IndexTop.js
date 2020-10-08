@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {useWindowDimensions, View} from 'react-native';
+import {View} from 'react-native';
 import Logo from './Logo';
 import TitleText from './TitleText';
 
@@ -17,8 +17,8 @@ export default class IndexTop extends Component {
         // const logoHeight = windowHeight * .125
 
         return (
-            <View style={styles.title}>
-                <TitleText/>
+            <View>
+                <TitleText style={styles.title}/>
                 <Logo style={styles.logo}/>
             </View>
         );

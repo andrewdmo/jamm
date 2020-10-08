@@ -18,6 +18,7 @@ export default class Logo extends Component {
     animRotateClockwise() {
         this.animRotate.setValue(0);    // resets value (loops)
         Animated.timing(this.animRotate, {
+            useNativeDriver: true,
             toValue: 1,
             duration: 4000,
             easing: Easing.elastic(),
@@ -27,6 +28,7 @@ export default class Logo extends Component {
     animRotateUnClockwise() {
         this.animRotate.setValue(1);    // resets value (loops)
         Animated.timing(this.animRotate, {
+            useNativeDriver: true,
             toValue: 0,
             duration: 4000,
             easing: Easing.elastic(),
@@ -58,6 +60,7 @@ export default class Logo extends Component {
                                 zIndex: 5,
                                 overflow: 'visible'
                             }}
+
             />
         );
     }

@@ -8,15 +8,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderStyle: 'solid',
         borderWidth: 1,
-        borderColor: "#DDDDDD",
+        // borderColor: "#DDDDDD",
     },
 
     buttonBox: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         borderWidth: 1,
-        borderStyle: 'solid',
+        borderStyle: 'dashed',
+        borderColor: "#DDDDDD",
     },
 
     buttonBoxBeta: {
@@ -31,9 +32,9 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        zIndex: 0,
-        alignContent: 'stretch',
-        backgroundColor: '#fff',
+        // zIndex: 0,
+        alignItems: 'stretch',
+        backgroundColor: '#6699c2',
     },
 
     logo: {
@@ -43,9 +44,9 @@ const styles = StyleSheet.create({
     },
 
     map: {
-        // flex: 1,
-        position: 'absolute',
-        zIndex: 1
+        flex: 1,
+        // position: 'absolute',
+        // zIndex: 1
     },
 
     mapBox: {
@@ -57,12 +58,12 @@ const styles = StyleSheet.create({
     },
 
     middle: {
-        flex: 6,
-        position: 'absolute',
-        zIndex: 2,
-        justifyContent: 'center',
-        alignItems: 'stretch',
-        backgroundColor: 'skyblue'
+        flex: 1,
+        // position: 'absolute',
+        // zIndex: 2,
+        // justifyContent: 'center',
+        // alignItems: 'stretch',
+        backgroundColor: '#194710'
     },
 
     middleText: {   // don't define flex
@@ -71,24 +72,22 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        // flex: 2
+        flex: 2
     },
 
     titleText: {
-        textAlign: 'center',
-        textAlignVertical: 'center',
         color: '#333333',
     },
 
     top: {
-        flex: 1,
-        position: 'absolute',
-        zIndex: 9,
+        // flex: 1,
+        // position: 'absolute',
+        // zIndex: 9,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         opacity: .8,
-        backgroundColor: '#dddd',
+        backgroundColor: '#ffffff',
     },
 });
 

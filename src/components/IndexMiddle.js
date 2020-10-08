@@ -12,10 +12,11 @@ export default class IndexMiddle extends Component {
 
     render() {
         return (
-            <View style={styles.buttonBox}>
-                <ButtonAlpha/>
+            <View>
+                <View style={styles.buttonBox}>
+                    <ButtonAlpha/>
+                </View>
             </View>
-
         );
     }
 }

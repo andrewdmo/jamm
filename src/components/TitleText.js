@@ -32,6 +32,7 @@ export default class TitleText extends Component {
             // friction: 2,
             // delay: 1000
             // }).start(() => this.startAnimBounce());
+            useNativeDriver: true
         }).start();
 
     }
