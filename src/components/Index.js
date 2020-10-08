@@ -6,6 +6,7 @@ import styles from "../assets/jammStyle";
 import TitleText from "./TitleText";
 import Logo from "./Logo";
 import ButtonAlpha from "./ButtonAlpha";
+import MapRN from "./MapRN";
 
 
 export default class Index extends Component {
@@ -22,11 +23,12 @@ export default class Index extends Component {
                     <Logo style={styles.logo}/>
                 </View>
                 <View style={styles.middle}>
-                    <View style={styles.buttonBox}>
-                        <ButtonAlpha style={styles.button}/>
-
+                    <View style={styles.button}>
+                        <ButtonAlpha/>
                     </View>
-                    {/*<Mapview/>*/}
+                    <View style={styles.mapBox}>
+                        <MapRN style={styles.map}/>
+                    </View>
                 </View>
             </View>
         );

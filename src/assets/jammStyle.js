@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
 
     button: {
+        flex: 1,
         // justifyContent: 'space-around',
         alignItems: 'center'
         // borderStyle: 'solid',
@@ -23,18 +24,21 @@ const styles = StyleSheet.create({
     },
 
     buttonBoxBeta: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
     },
 
     buttonPic: {
-        height: 200,
-        width: 200,
+        flex: 1,
+        height: 150,
+        width: 150,
         resizeMode: 'contain'
     },
 
     buttonPicBeta: {
-        height: 150,
-        width: 150,
+        height: 100,
+        width: 100,
         resizeMode: 'contain'
     },
 
@@ -58,15 +62,11 @@ const styles = StyleSheet.create({
     },
 
     mapBox: {
-        flex: 2,
-        borderWidth: 1,
-        borderStyle: 'dashed',
-        justifyContent: 'center',
-        alignItems: 'center'
+        flex: 1,
     },
 
     middle: {
-        flex: 2,
+        flex: 4,
         // backgroundColor: '#6699c2'
         backgroundColor: "#f5f5f5"
     },

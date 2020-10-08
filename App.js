@@ -17,7 +17,6 @@ Amplify.configure(config);
 export default function App() {
     return (
         <View style={styles.container}>
-            {/*<MapRN style={styles.map}/>*/}
             <Index/>
             <StatusBar style="auto"/>
         </View>
