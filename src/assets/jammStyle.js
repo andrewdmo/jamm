@@ -3,18 +3,20 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
 
     button: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderStyle: 'solid',
-        borderWidth: 1,
+        // justifyContent: 'space-around',
+        alignItems: 'center'
+        // borderStyle: 'solid',
+        // borderWidth: 1,
         // borderColor: "#DDDDDD",
+        // backgroundColor: "tomato"
+        // backgroundColor: '#6699c2'
+
     },
 
     buttonBox: {
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        justifyContent: 'space-around',
+        alignItems: 'center',
         borderWidth: 1,
         borderStyle: 'dashed',
         borderColor: "#DDDDDD",
@@ -25,6 +27,12 @@ const styles = StyleSheet.create({
     },
 
     buttonPic: {
+        height: 200,
+        width: 200,
+        resizeMode: 'contain'
+    },
+
+    buttonPicBeta: {
         height: 150,
         width: 150,
         resizeMode: 'contain'
@@ -34,7 +42,7 @@ const styles = StyleSheet.create({
         flex: 1,
         // zIndex: 0,
         alignItems: 'stretch',
-        backgroundColor: '#6699c2',
+        backgroundColor: 'beige',
     },
 
     logo: {
@@ -58,12 +66,9 @@ const styles = StyleSheet.create({
     },
 
     middle: {
-        flex: 1,
-        // position: 'absolute',
-        // zIndex: 2,
-        // justifyContent: 'center',
-        // alignItems: 'stretch',
-        backgroundColor: '#194710'
+        flex: 2,
+        // backgroundColor: '#6699c2'
+        backgroundColor: "#f5f5f5"
     },
 
     middleText: {   // don't define flex
@@ -80,14 +85,15 @@ const styles = StyleSheet.create({
     },
 
     top: {
-        // flex: 1,
+        flex: 1,
         // position: 'absolute',
-        // zIndex: 9,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         opacity: .8,
-        backgroundColor: '#ffffff',
+        // backgroundColor: '#ffffff',
+        backgroundColor: '#6699c2'
+
     },
 });
 

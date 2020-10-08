@@ -18,16 +18,7 @@ export default function App() {
     return (
         <View style={styles.container}>
             {/*<MapRN style={styles.map}/>*/}
-            {/*<Index/>*/}
-            <View style={styles.top}>
-                <TitleText style={styles.title}/>
-                <Logo style={styles.logo}/>
-            </View>
-            <View styles={styles.middle}>
-                <View style={styles.buttonBox}>
-                    <ButtonAlpha/>
-                </View>
-            </View>
+            <Index/>
             <StatusBar style="auto"/>
         </View>
     );

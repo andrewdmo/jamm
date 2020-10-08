@@ -16,18 +16,18 @@ export default class Index extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{flex: 1}}>
                 <View style={styles.top}>
                     <TitleText style={styles.title}/>
                     <Logo style={styles.logo}/>
                 </View>
-                <View styles={styles.middle}>
+                <View style={styles.middle}>
                     <View style={styles.buttonBox}>
-                        <ButtonAlpha/>
+                        <ButtonAlpha style={styles.button}/>
+
                     </View>
+                    {/*<Mapview/>*/}
                 </View>
-                {/*<IndexTop style={styles.top}/>*/}
-                {/*<IndexMiddle style={styles.middle}/>*/}
             </View>
         );
     }
