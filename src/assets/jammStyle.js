@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
+        zIndex: 0,
         alignContent: 'stretch',
         backgroundColor: '#fff',
     },
@@ -42,7 +43,9 @@ const styles = StyleSheet.create({
     },
 
     map: {
-        flex: 1,
+        // flex: 1,
+        position: 'absolute',
+        zIndex: 1
     },
 
     mapBox: {
@@ -55,6 +58,8 @@ const styles = StyleSheet.create({
 
     middle: {
         flex: 6,
+        position: 'absolute',
+        zIndex: 2,
         justifyContent: 'center',
         alignItems: 'stretch',
         backgroundColor: 'skyblue'
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        flex: 2
+        // flex: 2
     },
 
     titleText: {
@@ -77,7 +82,8 @@ const styles = StyleSheet.create({
 
     top: {
         flex: 1,
-        zIndex: 2,
+        position: 'absolute',
+        zIndex: 9,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

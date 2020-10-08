@@ -17,13 +17,9 @@ export default class IndexTop extends Component {
         // const logoHeight = windowHeight * .125
 
         return (
-            <View style={styles.top}>
-                <View style={styles.title}>
-                    <TitleText/>
-                </View>
-                <View style={styles.logo}>
-                    {/*<Logo/>*/}
-                </View>
+            <View style={styles.title}>
+                <TitleText/>
+                <Logo style={styles.logo}/>
             </View>
         );
     }

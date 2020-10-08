@@ -36,6 +36,7 @@ const mapStyles = StyleSheet.create({
     map: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-        position: 'absolute'
+        position: 'absolute',
+        zIndex: 1
     }
 });

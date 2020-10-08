@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View} from 'react-native';
 import IndexTop from "./IndexTop";
 import IndexMiddle from "./IndexMiddle";
+import styles from "../assets/jammStyle";
 
 
 export default class Index extends Component {
@@ -13,8 +14,8 @@ export default class Index extends Component {
     render() {
         return (
             <View>
-                <IndexTop/>
-                <IndexMiddle/>
+                <IndexTop style={styles.top}/>
+                <IndexMiddle style={styles.middle}/>
             </View>
         );
     }
