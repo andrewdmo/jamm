@@ -3,9 +3,9 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
 
     button: {
-        flex: 1,
-        // justifyContent: 'space-around',
-        alignItems: 'center'
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        opacity: .9,
         // borderStyle: 'solid',
         // borderWidth: 1,
         // borderColor: "#DDDDDD",
@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
     },
 
     buttonBox: {
-        flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
+        marginTop: 50,
         borderWidth: 1,
         borderStyle: 'dashed',
         borderColor: "#DDDDDD",
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     buttonBoxBeta: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 25,
     },
 
     buttonPic: {
-        flex: 1,
         height: 150,
         width: 150,
         resizeMode: 'contain'
@@ -42,9 +42,17 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
 
+    buttonText: {
+        justifyContent: 'center',
+        backgroundColor: 'beige',
+        textAlign: 'center',
+        borderWidth: 1,
+        borderStyle: 'dashed',
+        borderColor: 'grey',
+    },
+
     container: {
         flex: 1,
-        // zIndex: 0,
         alignItems: 'stretch',
         backgroundColor: 'beige',
     },
@@ -57,18 +65,17 @@ const styles = StyleSheet.create({
 
     map: {
         flex: 1,
-        // position: 'absolute',
-        // zIndex: 1
     },
 
     mapBox: {
-        flex: 1,
+        // flex: 1,
     },
 
     middle: {
-        flex: 4,
+        // flex: 4,
+        // zIndex: 1,
         // backgroundColor: '#6699c2'
-        backgroundColor: "#f5f5f5"
+        // backgroundColor: "#f5f5f5"
     },
 
     middleText: {   // don't define flex
@@ -85,7 +92,7 @@ const styles = StyleSheet.create({
     },
 
     top: {
-        flex: 1,
+        // flex: 1,
         // position: 'absolute',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -93,7 +100,6 @@ const styles = StyleSheet.create({
         opacity: .8,
         // backgroundColor: '#ffffff',
         backgroundColor: '#6699c2'
-
     },
 });
 

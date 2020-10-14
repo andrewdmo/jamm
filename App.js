@@ -10,7 +10,7 @@ import Index from './src/components/Index';
 import styles from './src/assets/jammStyle';
 import TitleText from "./src/components/TitleText";
 import Logo from "./src/components/Logo";
-import ButtonAlpha from "./src/components/ButtonAlpha";
+import ButtonAlpha from "./src/components/buttons/ButtonAlpha";
 
 Amplify.configure(config);
 

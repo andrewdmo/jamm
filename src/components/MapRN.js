@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import MapView from 'react-native-maps';
 import {Dimensions, StyleSheet} from "react-native";
+import MapView from 'react-native-maps';
 
 export default class MapRN extends Component {
 
@@ -15,14 +15,16 @@ export default class MapRN extends Component {
             },
         };
         this.onRegionChange = this.onRegionChange.bind(this);
+        // const initialWin = Dimensions.get('window');
+        // Dimensions.addEventListener(window, initialWin);
     }
-
 
     onRegionChange(region) {
         this.setState({region});
     }
 
     render() {
+
         return (
             <MapView
                 style={mapStyles.map}

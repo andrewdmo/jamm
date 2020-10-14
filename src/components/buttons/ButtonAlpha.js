@@ -1,38 +1,40 @@
 import React, {Component} from 'react';
 import {Image, TouchableOpacity, View, Text} from 'react-native';
-import styles from '../assets/jammStyle';
-import favicon from '../assets/favicon.png';
-import ButtonBetas from './ButtonBetas';
+import styles from '../../assets/jammStyle';
+import favicon from '../../assets/favicon.png';
+import ButtonBeta from './ButtonBeta';
 
 export default class ButtonAlpha extends Component {
     constructor(props) {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
         this.state = {
-            buttonpress: false
+            buttonPress: false
         }
     }
 
     buttonPress() {
         this.setState({
-            buttonpress: !this.state.buttonpress
+            buttonPress: !this.state.buttonPress
         }, () => {
-            console.log('buttonpress: ', this.state.buttonpress ? 'true' : 'false');
+            console.log('buttonpress: ', this.state.buttonPress ? 'true' : 'false');
         });
     }
 
     render() {
         return (
-            <View>
+            <View style={styles.buttonBox}>
                 <TouchableOpacity onPress={this.buttonPress}
                                   style={styles.button}>
                     <Image source={favicon}
                            style={styles.buttonPic}
                     />
-                    <Text>Click here</Text>
+                    {this.state.buttonPress === false &&
+                    <Text style={styles.buttonText}>Click here</Text>
+                    }
                 </TouchableOpacity>
-                {this.state.buttonpress === true &&
-                <ButtonBetas style={{flex: 1}}/>
+                {this.state.buttonPress === true &&
+                <ButtonBeta/>
                 }
             </View>
         )

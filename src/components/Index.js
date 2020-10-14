@@ -5,7 +5,7 @@ import IndexMiddle from "./IndexMiddle";
 import styles from "../assets/jammStyle";
 import TitleText from "./TitleText";
 import Logo from "./Logo";
-import ButtonAlpha from "./ButtonAlpha";
+import ButtonAlpha from "./buttons/ButtonAlpha";
 import MapRN from "./MapRN";
 
 
@@ -18,18 +18,14 @@ export default class Index extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
+                <View style={styles.mapBox}>
+                    <MapRN style={styles.map}/>
+                </View>
                 <View style={styles.top}>
                     <TitleText style={styles.title}/>
                     <Logo style={styles.logo}/>
                 </View>
-                <View style={styles.middle}>
-                    <View style={styles.button}>
-                        <ButtonAlpha/>
-                    </View>
-                    <View style={styles.mapBox}>
-                        <MapRN style={styles.map}/>
-                    </View>
-                </View>
+                <ButtonAlpha/>
             </View>
         );
     }

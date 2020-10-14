@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
 import styles from '../assets/jammStyle';
-import ButtonAlpha from "./ButtonAlpha";
+import ButtonAlpha from "./buttons/ButtonAlpha";
 
 
 export default class IndexMiddle extends Component {
