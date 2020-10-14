@@ -14,11 +14,12 @@ enum UserType {
 
 type Musician @model {
     genre: [Genre]
-    instruments: [Instrument] @connection(keyName: "playsWhat", fields: ["id"])
+    instruments: [Instrument]! @connection(keyName: "playsWhat", fields: ["id"])
 }
 
 type Instrument @model @key(name: "playsWhat", fields: ["id"]){
     id: ID!
+    name: InstrumentName!
     genre: [Genre]
 }
 
@@ -27,8 +28,6 @@ enum Genre {
     Rock
     Rap
 }
-
-
 
 type Venue {
     genres: [Genre]!
@@ -65,4 +64,69 @@ type Todo {
     id: ID!
     name: String!
     description: String
+}
+
+enum InstrumentName {
+    ACCORDION
+    ACOUSTIC BASS GUITAR
+    ACOUSTIC GUITAR
+    APPALACHIAN DULCIMER
+    BANJO
+    BASSOON
+    BAGPIPE
+    CELLO
+    CLARINET
+    DIDGERIDOO
+    DJEMBE
+    DOUBLE BASS
+    DRUMS
+    ELECTRIC GUITAR
+    ELECTRIC ORGAN
+    ELECTRIC PIANO
+    FLUTE
+    FRENCH HORN
+    GLOCKENSPIEL
+    GUITARRÓN
+    HAMMERED DULCIMER
+    HARP
+    HARPSICHORD
+    HURDY GURDY
+    BOUZOUKI
+    JUG
+    KORA
+    LUTE
+    LYRE
+    MALIMBA
+    MANDOLIN
+    MARIMBA
+    MELODICA
+    MUSICAL SAW
+    OBOE
+    ORGAN PIPE
+    PEDAL STEEL
+    PIANO
+    PICCOLO
+    SAXOPHONE
+    SITAR
+    SOUSAPHONE
+    STEEL DRUM
+    STEEL GUITAR
+    SYNTHESIZER
+    TABLA
+    THEREMIN
+    TROMBONE
+    TRUMPET
+    TUBA
+    UKULELE
+    VIBRAPHONE
+    VIOLIN
+    VIOLA
+    XYLOPHONE
+
+}
+
+enum Genre {
+    Blues
+    Rock
+    Rap
 }
