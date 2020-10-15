@@ -44,8 +44,9 @@ const styles = StyleSheet.create({
 
     buttonText: {
         justifyContent: 'center',
-        backgroundColor: 'beige',
+        backgroundColor: '#be3b3b',
         textAlign: 'center',
+        color: 'beige',
         borderWidth: 1,
         borderStyle: 'dashed',
         borderColor: 'grey',

@@ -5,6 +5,15 @@ import favicon from "../../assets/favicon.png";
 
 export default class ButtonMusician extends Component {
 
+    constructor(props) {
+        super(props);
+        this.buttonPress = this.buttonPress.bind(this);
+    }
+
+    buttonPress() {
+
+    }
+
     render() {
 
         return (

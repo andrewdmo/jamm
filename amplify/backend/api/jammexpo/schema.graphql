@@ -14,7 +14,7 @@ enum UserType {
 
 type Musician @model {
     genre: [Genre]
-    instruments: [Instrument]! @connection(keyName: "playsWhat", fields: ["id"])
+    instruments: [Instrument]! @connection(keyName: "playsWhat", fields: ["id"], queryField: "findByInstrument")
 }
 
 type Instrument @model @key(name: "playsWhat", fields: ["id"]){

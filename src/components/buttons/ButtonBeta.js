@@ -11,6 +11,8 @@ export default class ButtonBeta extends Component {
         this.musicianButtonPress = this.musicianButtonPress.bind(this);
         this.venueButtonPress = this.venueButtonPress.bind(this);
         this.state = {
+            musicianButtonShow: true,
+            venueButtonShow: true,
             musicianButtonPress: false,
             venueButtonPress: false
         }
@@ -18,20 +20,20 @@ export default class ButtonBeta extends Component {
 
     musicianButtonPress() {
         this.setState({
-            musicianButtonPress: !this.state.musicianButtonPress,
-            venueButtonPress: false,
-        }, () => {
-            console.log('musicianButtonPress: ', this.state.musicianButtonPress ? 'true' : 'false');
+            musicianButtonPress: true,
+            venueButtonShow: false
         });
+
+
     }
 
     venueButtonPress() {
         this.setState({
-            venueButtonPress: !this.state.venueButtonPress,
-            musicianButtonPress: false,
-        }, () => {
-            console.log('venueButtonPress: ', this.state.venueButtonPress ? 'true' : 'false');
+            venueButtonPress: true,
+            musicianButtonShow: false
         });
+
+
     }
 
     render() {
@@ -40,6 +42,10 @@ export default class ButtonBeta extends Component {
             <View style={{flexDirection: 'column'}}>
                 <Text style={styles.buttonText}>Are you a...:</Text>
                 <View style={styles.buttonBoxBeta}>
+
+
+                    {this.state.musicianButtonShow === true &&
+
                     <TouchableOpacity onPress={this.musicianButtonPress}
                                       style={styles.button}>
                         <Image source={favicon}
@@ -48,10 +54,13 @@ export default class ButtonBeta extends Component {
                         <Text style={styles.buttonText}>
                             Musician
                         </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity>}
                     {this.state.musicianButtonPress === true &&
                     <ButtonMusician/>
                     }
+
+
+                    {this.state.venueButtonShow === true &&
 
                     <TouchableOpacity onPress={this.venueButtonPress}
                                       style={styles.button}>
@@ -61,7 +70,7 @@ export default class ButtonBeta extends Component {
                         <Text style={styles.buttonText}>
                             Venue
                         </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity>}
                     {this.state.venueButtonPress === true &&
                     // <ButtonVenue/>
                     <Text>[ButtonVenue]</Text>
