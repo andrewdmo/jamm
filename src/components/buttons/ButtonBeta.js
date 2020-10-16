@@ -39,10 +39,11 @@ export default class ButtonBeta extends Component {
     render() {
 
         return (
-            <View style={{flexDirection: 'column'}}>
+            <View>
+                {(this.state.musicianButtonPress === false && this.state.venueButtonPress === false) &&
                 <Text style={styles.buttonText}>Are you a...:</Text>
+                }
                 <View style={styles.buttonBoxBeta}>
-
 
                     {this.state.musicianButtonShow === true &&
 
@@ -51,13 +52,13 @@ export default class ButtonBeta extends Component {
                         <Image source={favicon}
                                style={styles.buttonPicBeta}
                         />
+                        {this.state.musicianButtonPress === false &&
                         <Text style={styles.buttonText}>
                             Musician
                         </Text>
+                        }
+
                     </TouchableOpacity>}
-                    {this.state.musicianButtonPress === true &&
-                    <ButtonMusician/>
-                    }
 
 
                     {this.state.venueButtonShow === true &&
@@ -67,15 +68,19 @@ export default class ButtonBeta extends Component {
                         <Image source={favicon}
                                style={styles.buttonPicBeta}
                         />
+                        {this.state.venueButtonPress === false &&
                         <Text style={styles.buttonText}>
                             Venue
                         </Text>
+                        }
                     </TouchableOpacity>}
                     {this.state.venueButtonPress === true &&
-                    // <ButtonVenue/>
                     <Text>[ButtonVenue]</Text>
                     }
                 </View>
+                {this.state.musicianButtonPress === true &&
+                <ButtonMusician/>
+                }
             </View>
         )
     }

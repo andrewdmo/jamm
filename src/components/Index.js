@@ -17,7 +17,7 @@ export default class Index extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View>
                 <View style={styles.mapBox}>
                     <MapRN style={styles.map}/>
                 </View>

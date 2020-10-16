@@ -6,21 +6,16 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         opacity: .9,
-        // borderStyle: 'solid',
-        // borderWidth: 1,
-        // borderColor: "#DDDDDD",
-        // backgroundColor: "tomato"
-        // backgroundColor: '#6699c2'
-
     },
 
     buttonBox: {
         justifyContent: 'space-around',
-        alignItems: 'center',
+        alignSelf: 'center',
         marginTop: 50,
         borderWidth: 1,
         borderStyle: 'dashed',
-        borderColor: "#DDDDDD",
+        borderColor: "#be3b3b",
+        opacity: .9
     },
 
     buttonBoxBeta: {
@@ -28,6 +23,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         marginTop: 25,
+        borderWidth: 1,
+        borderStyle: 'dashed',
+        borderColor: "#6699c2",
+    },
+
+    buttonBoxMusician: {
+        flexDirection: 'row',
+        // justifyContent: 'space-around',
     },
 
     buttonPic: {
@@ -42,19 +45,34 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
 
+    buttonPicGamma: {
+        height: 75,
+        width: 75,
+        resizeMode: 'contain',
+        // position: 'absolute'
+    },
+
+    buttonPicNote: {
+        height: 60,
+        width: 60,
+        resizeMode: 'contain',
+        position: 'absolute',
+        ve: 'center'
+    },
+
+
     buttonText: {
-        justifyContent: 'center',
         backgroundColor: '#be3b3b',
         textAlign: 'center',
         color: 'beige',
         borderWidth: 1,
         borderStyle: 'dashed',
         borderColor: 'grey',
+        marginTop: 10
     },
 
     container: {
         flex: 1,
-        alignItems: 'stretch',
         backgroundColor: 'beige',
     },
 
@@ -69,7 +87,7 @@ const styles = StyleSheet.create({
     },
 
     mapBox: {
-        // flex: 1,
+        flex: 1,
     },
 
     middle: {

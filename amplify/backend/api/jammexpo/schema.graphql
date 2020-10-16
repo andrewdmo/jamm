@@ -14,22 +14,23 @@ enum UserType {
 
 type Musician @model {
     genre: [Genre]
-    instruments: [Instrument]! @connection(keyName: "playsWhat", fields: ["id"], queryField: "findByInstrument")
+    #    instruments: [Instrument]! @connection(fields: ["genre"])
 }
 
-type Instrument @model @key(name: "playsWhat", fields: ["id"]){
+type Instrument @model {
     id: ID!
     name: InstrumentName!
     genre: [Genre]
 }
 
-enum Genre {
-    Blues
-    Rock
-    Rap
+type Genre {
+    id: ID!
+    name: GenreName!
+    instruments: [Instrument]
 }
 
 type Venue {
+    id: ID!
     genres: [Genre]!
     instruments: [Instrument]
 }
@@ -42,21 +43,21 @@ type Fan {
 type Blog @model {
     id: ID!
     name: String!
-    posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+    #    posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
 }
 
-type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+type Post @model {
     id: ID!
     title: String!
     blogID: ID!
-    blog: Blog @connection(fields: ["blogID"])
-    comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+    #    blog: Blog @connection(fields: ["blogID"])
+    #    comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
 }
 
-type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+type Comment @model {
     id: ID!
     postID: ID!
-    post: Post @connection(fields: ["postID"])
+    #    post: Post @connection(fields: ["postID"])
     content: String!
 }
 
@@ -68,9 +69,9 @@ type Todo {
 
 enum InstrumentName {
     ACCORDION
-    ACOUSTIC BASS GUITAR
-    ACOUSTIC GUITAR
-    APPALACHIAN DULCIMER
+    ACOUSTIC_BASS_GUITAR
+    ACOUSTIC_GUITAR
+    APPALACHIAN_DULCIMER
     BANJO
     BASSOON
     BAGPIPE
@@ -80,17 +81,17 @@ enum InstrumentName {
     DJEMBE
     DOUBLE BASS
     DRUMS
-    ELECTRIC GUITAR
-    ELECTRIC ORGAN
-    ELECTRIC PIANO
+    ELECTRIC_GUITAR
+    ELECTRIC_ORGAN
+    ELECTRIC_PIANO
     FLUTE
     FRENCH HORN
     GLOCKENSPIEL
-    GUITARRÓN
-    HAMMERED DULCIMER
+    GUITARRON
+    HAMMERED_DULCIMER
     HARP
     HARPSICHORD
-    HURDY GURDY
+    HURDY_GURDY
     BOUZOUKI
     JUG
     KORA
@@ -100,17 +101,17 @@ enum InstrumentName {
     MANDOLIN
     MARIMBA
     MELODICA
-    MUSICAL SAW
+    MUSICAL_SAW
     OBOE
-    ORGAN PIPE
-    PEDAL STEEL
+    ORGAN_PIPE
+    PEDAL_STEEL
     PIANO
     PICCOLO
     SAXOPHONE
     SITAR
     SOUSAPHONE
-    STEEL DRUM
-    STEEL GUITAR
+    STEEL_DRUM
+    STEEL_GUITAR
     SYNTHESIZER
     TABLA
     THEREMIN
@@ -118,15 +119,15 @@ enum InstrumentName {
     TRUMPET
     TUBA
     UKULELE
-    VIBRAPHONE
+    VIBRAPHONE_HARP
     VIOLIN
     VIOLA
     XYLOPHONE
 
 }
 
-enum Genre {
-    Blues
-    Rock
-    Rap
+enum GenreName {
+    BLUES
+    ROCK
+    RAP
 }
