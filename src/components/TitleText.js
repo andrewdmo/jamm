@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Animated, Dimensions} from 'react-native';
+import {View, Animated, Dimensions, TouchableOpacity} from 'react-native';
 
 import styles from '../assets/jammStyle';
-import View, {Button, Easing} from "react-native-web";
 
 
 export default class TitleText extends Component {
@@ -10,6 +9,7 @@ export default class TitleText extends Component {
     constructor(props) {
         super(props);
         this.animBounce = new Animated.Value(0);
+        this.startAnimBounce = this.startAnimBounce.bind(this);
     }
 
     componentDidMount() {
@@ -30,7 +30,7 @@ export default class TitleText extends Component {
             // mass: 2,
             // velocity: 3,
             // friction: 2,
-            // delay: 1000
+            // delay: 1000,
             // }).start(() => this.startAnimBounce());
             useNativeDriver: true
         }).start();
@@ -44,17 +44,21 @@ export default class TitleText extends Component {
             outputRange: [windowWidth, 0],
         });
         return (
-            <Animated.Text
-                style={{
-                    flex: 1,
-                    transform: [
-                        {translateX: animBounce},
-                        {perspective: 1000} // without this line this Animation will not render on Android while working fine on iOS
-                    ],
-                    overflow: 'visible'
-                }}
-            >[Jamm Banner]</Animated.Text>
-
+            <View style={{flex: 1}}>
+                <TouchableOpacity
+                    onPress={this.startAnimBounce}
+                >
+                    <Animated.Text
+                        style={{
+                            transform: [
+                                {translateX: animBounce},
+                                {perspective: 1000} // without this line this Animation will not render on Android while working fine on iOS
+                            ],
+                            overflow: 'visible'
+                        }}
+                    >[Jamm Banner]</Animated.Text>
+                </TouchableOpacity>
+            </View>
         );
     }
 }

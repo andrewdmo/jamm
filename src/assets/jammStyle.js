@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
         width: 60,
         resizeMode: 'contain',
         position: 'absolute',
-        ve: 'center'
     },
 
 
