@@ -4,7 +4,7 @@ import styles from '../../assets/jammStyle';
 import favicon from '../../assets/favicon.png';
 import musicNote from '../../assets/music-note-md.png';
 
-import MenuInstrument from '../menus/MenuInstrument';
+import MenuInstrument from '../menus/MenuInstr';
 
 export default class ButtonMusician extends Component {
 

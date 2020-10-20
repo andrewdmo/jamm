@@ -48,6 +48,7 @@ export const onCreateMusician = /* GraphQL */ `
         id
         name
       }
+      instruments
       createdAt
       updatedAt
     }
@@ -61,6 +62,7 @@ export const onUpdateMusician = /* GraphQL */ `
         id
         name
       }
+      instruments
       createdAt
       updatedAt
     }
@@ -74,6 +76,7 @@ export const onDeleteMusician = /* GraphQL */ `
         id
         name
       }
+      instruments
       createdAt
       updatedAt
     }

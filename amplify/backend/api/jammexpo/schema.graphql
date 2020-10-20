@@ -7,20 +7,20 @@ type User @model {
 }
 
 enum UserType {
-    Musician
-    Venue
+    MUSICIAN
+    VENUE
     Fan
 }
 
 type Musician @model {
     genre: [Genre]
-    #    instruments: [Instrument]! @connection(fields: ["genre"])
+    instruments: [InstrumentName]!
 }
 
 type Instrument @model {
     id: ID!
     name: InstrumentName!
-    genre: [Genre]
+    genre: [Genre] @connection
 }
 
 type Genre {

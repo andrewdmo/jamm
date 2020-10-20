@@ -2,7 +2,7 @@ projects:
   jammexpo:
     schemaPath: amplify/backend/api/jammexpo/build/schema.graphql
     includes:
-      - ''
+      - src/graphql/**/*.js
     excludes:
       - ./amplify/**
     extensions:

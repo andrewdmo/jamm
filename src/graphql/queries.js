@@ -42,6 +42,7 @@ export const getMusician = /* GraphQL */ `
         id
         name
       }
+      instruments
       createdAt
       updatedAt
     }
@@ -56,6 +57,7 @@ export const listMusicians = /* GraphQL */ `
     listMusicians(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        instruments
         createdAt
         updatedAt
       }

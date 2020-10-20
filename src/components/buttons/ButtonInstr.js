@@ -3,7 +3,7 @@ import {ScrollView, Text} from 'react-native';
 import styles from '../../assets/jammStyle';
 import favicon from '../../assets/favicon.png';
 
-export default class ButtonInstruments extends Component {
+export default class ButtonInstr extends Component {
     constructor(props) {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
@@ -22,7 +22,7 @@ export default class ButtonInstruments extends Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={{height: 50}}>
                 <Text>Instrument Menu</Text>
                 <Text>Instrument Menu</Text>
                 <Text>Instrument Menu</Text>
