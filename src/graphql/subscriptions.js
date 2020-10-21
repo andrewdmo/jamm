@@ -47,6 +47,8 @@ export const onCreateMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -61,6 +63,8 @@ export const onUpdateMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -75,6 +79,8 @@ export const onDeleteMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -88,8 +94,7 @@ export const onCreateInstrument = /* GraphQL */ `
       id
       name
       genre {
-        id
-        name
+        nextToken
       }
       createdAt
       updatedAt
@@ -102,8 +107,7 @@ export const onUpdateInstrument = /* GraphQL */ `
       id
       name
       genre {
-        id
-        name
+        nextToken
       }
       createdAt
       updatedAt
@@ -116,8 +120,118 @@ export const onDeleteInstrument = /* GraphQL */ `
       id
       name
       genre {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateGenre = /* GraphQL */ `
+  subscription OnCreateGenre {
+    onCreateGenre {
+      id
+      name
+      instruments {
         id
         name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateGenre = /* GraphQL */ `
+  subscription OnUpdateGenre {
+    onUpdateGenre {
+      id
+      name
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteGenre = /* GraphQL */ `
+  subscription OnDeleteGenre {
+    onDeleteGenre {
+      id
+      name
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateVenue = /* GraphQL */ `
+  subscription OnCreateVenue {
+    onCreateVenue {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateVenue = /* GraphQL */ `
+  subscription OnUpdateVenue {
+    onUpdateVenue {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteVenue = /* GraphQL */ `
+  subscription OnDeleteVenue {
+    onDeleteVenue {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt

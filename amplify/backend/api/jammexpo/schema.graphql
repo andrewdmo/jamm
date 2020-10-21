@@ -7,8 +7,8 @@ type User @model {
 }
 
 enum UserType {
-    MUSICIAN
-    VENUE
+    Musician
+    Venue
     Fan
 }
 
@@ -23,13 +23,13 @@ type Instrument @model {
     genre: [Genre] @connection
 }
 
-type Genre {
+type Genre @model {
     id: ID!
     name: GenreName!
     instruments: [Instrument]
 }
 
-type Venue {
+type Venue @model {
     id: ID!
     genres: [Genre]!
     instruments: [Instrument]
@@ -68,62 +68,170 @@ type Todo {
 }
 
 enum InstrumentName {
+    "Accordian"
     ACCORDION
-    ACOUSTIC_BASS_GUITAR
-    ACOUSTIC_GUITAR
-    APPALACHIAN_DULCIMER
-    BANJO
-    BASSOON
-    BAGPIPE
-    CELLO
-    CLARINET
-    DIDGERIDOO
-    DJEMBE
-    DOUBLE BASS
-    DRUMS
-    ELECTRIC_GUITAR
-    ELECTRIC_ORGAN
-    ELECTRIC_PIANO
-    FLUTE
-    FRENCH HORN
-    GLOCKENSPIEL
-    GUITARRON
-    HAMMERED_DULCIMER
-    HARP
-    HARPSICHORD
-    HURDY_GURDY
-    BOUZOUKI
-    JUG
-    KORA
-    LUTE
-    LYRE
-    MALIMBA
-    MANDOLIN
-    MARIMBA
-    MELODICA
-    MUSICAL_SAW
-    OBOE
-    ORGAN_PIPE
-    PEDAL_STEEL
-    PIANO
-    PICCOLO
-    SAXOPHONE
-    SITAR
-    SOUSAPHONE
-    STEEL_DRUM
-    STEEL_GUITAR
-    SYNTHESIZER
-    TABLA
-    THEREMIN
-    TROMBONE
-    TRUMPET
-    TUBA
-    UKULELE
-    VIBRAPHONE_HARP
-    VIOLIN
-    VIOLA
-    XYLOPHONE
 
+    "Acoustic bass"
+    ACOUSTIC_BASS_GUITAR
+
+    "Acoustic guitar"
+    ACOUSTIC_GUITAR
+
+    "Appalachian dulcimer"
+    APPALACHIAN_DULCIMER
+
+    "Banjo"
+    BANJO
+
+    "Bassoon"
+    BASSOON
+
+    "Bagpipe"
+    BAGPIPE
+
+    "Cello"
+    CELLO
+
+    "Clarinet"
+    CLARINET
+
+    "Didgeridoo"
+    DIDGERIDOO
+
+    "Djembe"
+    DJEMBE
+
+    "Double bass"
+    DOUBLE_BASS
+
+    "Drums"
+    DRUMS
+
+    "Electric guitar"
+    ELECTRIC_GUITAR
+
+    "Electric organ"
+    ELECTRIC_ORGAN
+
+    "Electric piano"
+    ELECTRIC_PIANO
+
+    "Flute"
+    FLUTE
+
+    "French horn"
+    FRENCH_HORN
+
+    "Glockenspiel"
+    GLOCKENSPIEL
+
+    "Guitarrón"
+    GUITARRON
+
+    "Hammered dulcimer"
+    HAMMERED_DULCIMER
+
+    "Harp"
+    HARP
+
+    "Harpsichord"
+    HARPSICHORD
+
+    "Hurdy gurdy"
+    HURDY_GURDY
+
+    "Bouzouki"
+    BOUZOUKI
+
+    "Jug"
+    JUG
+
+    "Kora"
+    KORA
+
+    "Lute"
+    LUTE
+
+    "Lyre"
+    LYRE
+
+    "Malimba"
+    MALIMBA
+
+    "Mandolin"
+    MANDOLIN
+
+    "Marimba"
+    MARIMBA
+
+    "Melodica"
+    MELODICA
+
+    "Musical saw"
+    MUSICAL_SAW
+
+    "Oboe"
+    OBOE
+
+    "Organ - pipe"
+    ORGAN_PIPE
+
+    "Pedal steel"
+    PEDAL_STEEL
+
+    "Piano"
+    PIANO
+
+    "Piccolo"
+    PICCOLO
+
+    "Saxophone"
+    SAXOPHONE
+
+    "Sitar"
+    SITAR
+
+    "Sousaphone"
+    SOUSAPHONE
+
+    "Steel drum"
+    STEEL_DRUM
+
+    "Steel guitar"
+    STEEL_GUITAR
+
+    "Synthesizer"
+    SYNTHESIZER
+
+    "Tabla"
+    TABLA
+
+    "Theremin"
+    THEREMIN
+
+    "Trombone"
+    TROMBONE
+
+    "Trumpet"
+    TRUMPET
+
+    "Tuba"
+    TUBA
+
+    "Ukulele"
+    UKULELE
+
+    "Vibraphone / vibraharp"
+    VIBRAPHONE_HARP
+
+    "Violin"
+    VIOLIN
+
+    "Viola"
+    VIOLA
+
+    "Xylophone"
+    XYLOPHONE
 }
 
 enum GenreName {

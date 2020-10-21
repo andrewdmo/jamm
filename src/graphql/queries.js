@@ -41,6 +41,8 @@ export const getMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -71,8 +73,7 @@ export const getInstrument = /* GraphQL */ `
       id
       name
       genre {
-        id
-        name
+        nextToken
       }
       createdAt
       updatedAt
@@ -89,6 +90,76 @@ export const listInstruments = /* GraphQL */ `
       items {
         id
         name
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getGenre = /* GraphQL */ `
+  query GetGenre($id: ID!) {
+    getGenre(id: $id) {
+      id
+      name
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listGenres = /* GraphQL */ `
+  query ListGenres(
+    $filter: ModelGenreFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listGenres(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getVenue = /* GraphQL */ `
+  query GetVenue($id: ID!) {
+    getVenue(id: $id) {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listVenues = /* GraphQL */ `
+  query ListVenues(
+    $filter: ModelVenueFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listVenues(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
         createdAt
         updatedAt
       }

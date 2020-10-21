@@ -1,6 +1,7 @@
 import React, {Component, useState, useEffect} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 import API, {graphqlOperation} from 'aws-amplify';
+import gql from 'graphql-tag';
 // import API, {graphqlOperation} from '@aws-amplify/api';
 import styles from '../../assets/jammStyle';
 import favicon from '../../assets/favicon.png';
@@ -25,7 +26,11 @@ export default class ButtonAlpha extends Component {
         // const [formState] = useState(initialState);
         // const [instruments] = useState([]);
 
-        const fetch = this.fetchInstruments;
+        console.log('mounted');
+
+        const a = this.fetchInstruments;
+        console.log('fetch: ', a.toString());
+
 
         // this.setState({
         //     instruments: [instruments]
@@ -33,17 +38,52 @@ export default class ButtonAlpha extends Component {
     }
 
     async fetchInstruments() {
+
+        console.log('async fetch');
+
         try {
-            const instrData = await API.graphql(graphqlOperation(listInstruments));
+
+            const instrDataGQL = gql`
+                query listTodos {
+                    listTodos {
+                        items {
+                            id
+                            name
+                            description
+                        }
+                    }
+                }
+            `;
+            console.log('instrDataGQL: ', instrDataGQL);
+            const instrNames = instrDataGQL.data.name.map((description) => {
+                this.setState({
+                    instruments: [instrNames]
+                });
+            });
+
+            const instrData = await API.graphql({
+                    query: `{
+                __type(name: "InstrumentName") {
+                    name
+                    enumValues{
+                        description
+                    }
+                }
+            }`
+                }, () => {
+                    console.log('instrData: ', instrData);
+                    const instrNames = instrData.data.name.map((description) => {
+                        this.setState({
+                            instruments: [instrNames]
+                        });
+                    });
+                }
+            );
+
             // .then(this.setState({instruments: {instruments}}
             // ));
             // const instData = await API.graphql({query: queries.listInstruments});
-            console.log(instrData);
-            const instrNames = instrData.data.instruments.map((name) => {
-                this.setState({
-                    instruments: instrNames
-                });
-            });
+
 
         } catch (err) {
             console.log('error fetching instruments');
@@ -61,6 +101,7 @@ export default class ButtonAlpha extends Component {
     render() {
         // const instr = this.fetchInstruments().map;
         // const instruments = this.state.instruments.map(instruments, index);
+        console.log('render state: ', this.state.instruments)
         return (
             <View>
                 <ScrollView>

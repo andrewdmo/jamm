@@ -59,6 +59,8 @@ export const createMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -76,6 +78,8 @@ export const updateMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -93,6 +97,8 @@ export const deleteMusician = /* GraphQL */ `
       genre {
         id
         name
+        createdAt
+        updatedAt
       }
       instruments
       createdAt
@@ -109,8 +115,7 @@ export const createInstrument = /* GraphQL */ `
       id
       name
       genre {
-        id
-        name
+        nextToken
       }
       createdAt
       updatedAt
@@ -126,8 +131,7 @@ export const updateInstrument = /* GraphQL */ `
       id
       name
       genre {
-        id
-        name
+        nextToken
       }
       createdAt
       updatedAt
@@ -143,8 +147,136 @@ export const deleteInstrument = /* GraphQL */ `
       id
       name
       genre {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createGenre = /* GraphQL */ `
+  mutation CreateGenre(
+    $input: CreateGenreInput!
+    $condition: ModelGenreConditionInput
+  ) {
+    createGenre(input: $input, condition: $condition) {
+      id
+      name
+      instruments {
         id
         name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateGenre = /* GraphQL */ `
+  mutation UpdateGenre(
+    $input: UpdateGenreInput!
+    $condition: ModelGenreConditionInput
+  ) {
+    updateGenre(input: $input, condition: $condition) {
+      id
+      name
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteGenre = /* GraphQL */ `
+  mutation DeleteGenre(
+    $input: DeleteGenreInput!
+    $condition: ModelGenreConditionInput
+  ) {
+    deleteGenre(input: $input, condition: $condition) {
+      id
+      name
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createVenue = /* GraphQL */ `
+  mutation CreateVenue(
+    $input: CreateVenueInput!
+    $condition: ModelVenueConditionInput
+  ) {
+    createVenue(input: $input, condition: $condition) {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateVenue = /* GraphQL */ `
+  mutation UpdateVenue(
+    $input: UpdateVenueInput!
+    $condition: ModelVenueConditionInput
+  ) {
+    updateVenue(input: $input, condition: $condition) {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteVenue = /* GraphQL */ `
+  mutation DeleteVenue(
+    $input: DeleteVenueInput!
+    $condition: ModelVenueConditionInput
+  ) {
+    deleteVenue(input: $input, condition: $condition) {
+      id
+      genres {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      instruments {
+        id
+        name
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
