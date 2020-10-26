@@ -20,8 +20,10 @@ type Musician @model {
 type Instrument @model {
     id: ID!
     name: InstrumentName!
-    genre: [Genre] @connection
+    genre: [Genre]
 }
+
+#KeyField MUST be the same on the both end of @connection attribute.
 
 type Genre @model {
     id: ID!

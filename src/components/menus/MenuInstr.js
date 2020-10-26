@@ -1,6 +1,6 @@
 import React, {Component, useState, useEffect} from 'react';
 import {View, ScrollView, Text} from 'react-native';
-import API, {graphqlOperation} from 'aws-amplify';
+import {API, graphqlOperation} from 'aws-amplify';
 import gql from 'graphql-tag';
 // import API, {graphqlOperation} from '@aws-amplify/api';
 import styles from '../../assets/jammStyle';
@@ -22,13 +22,16 @@ export default class ButtonAlpha extends Component {
 
     componentDidMount() {
 
-        const instruments = new this.fetchInstruments;
-        console.log('mount fetch: ', instruments.toString());
+        const mountData = new this.fetchInstruments;
+
+        // const mountInstr = mountData.data.description;
+        //
+        // console.log('mount fetch: ', mountInstr.toString());
 
 
-        this.setState({
-            instruments: [instruments]
-        });
+        // this.setState({
+        //     instruments: [instruments]
+        // });
     }
 
     async fetchInstruments() {
@@ -38,17 +41,17 @@ export default class ButtonAlpha extends Component {
         try {
 
             // const instrDataGQL = gql`
-            //     query listTodos {
-            //         items {
-            //             id
+            //     query {
+            //         __type(name: "InstrumentName") {
             //             name
-            //             description
+            //             enumValues{
+            //                 description
+            //             }
             //         }
             //     }
-            //
             // `;
             // console.log('instrDataGQL: ', instrDataGQL);
-            // const instrNames = instrDataGQL.data.name.map((description) => {
+            // const instrNames = instrDataGQL.data.description.map((description) => {
             //     this.setState({
             //         instruments: [instrNames]
             //     });
@@ -61,24 +64,31 @@ export default class ButtonAlpha extends Component {
                     enumValues{
                         description
                     }
+                }l
+            }`,
+
+                // authMode: 'AWS_IAM'
+
+
+                // () => {   // callback:
+                //     console.log('instrData: ', instrData);
+                //     // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
+                //     const instrNames = instrData.data;
+                //
+                //     // this.setState({
+                //     //         instruments: [instrNames]
+                //     //     }
+                //     // );
                 }
-            }`
-                }, () => {
-                    console.log('instrData: ', instrData);
-                    const instrNames = instrData.data.name.map((description) => {
-                        this.setState({
-                            instruments: [instrNames]
-                        });
-                    });
-                }
-            );
+            );     // await API
 
             // .then(this.setState({instruments: {instruments}}
             // ));
             // const instData = await API.graphql({query: queries.listInstruments});
 
 
-        } catch (err) {
+        } catch
+            (err) {
             console.log('error fetching instruments');
         }
     }

@@ -73,7 +73,10 @@ export const getInstrument = /* GraphQL */ `
       id
       name
       genre {
-        nextToken
+        id
+        name
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt

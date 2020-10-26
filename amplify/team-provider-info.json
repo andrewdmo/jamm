@@ -10,6 +10,22 @@
       "StackName": "amplify-jammexpo-dev-150714",
       "StackId": "arn:aws:cloudformation:us-east-1:304487142683:stack/amplify-jammexpo-dev-150714/27725650-0807-11eb-9dc2-121b03ae900d",
       "AmplifyAppId": "d7uxkthpl4d1i"
+    },
+    "categories": {
+      "auth": {
+        "jammexpo6c8c47c0": {
+          "facebookAppId": "q",
+          "googleClientId": "x",
+          "amazonAppId": "x"
+        }
+      },
+      "function": {
+        "jammexpo6c8c47c0CustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": ""
+        }
+      }
     }
   }
 }

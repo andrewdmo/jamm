@@ -115,7 +115,10 @@ export const createInstrument = /* GraphQL */ `
       id
       name
       genre {
-        nextToken
+        id
+        name
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -131,7 +134,10 @@ export const updateInstrument = /* GraphQL */ `
       id
       name
       genre {
-        nextToken
+        id
+        name
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -147,7 +153,10 @@ export const deleteInstrument = /* GraphQL */ `
       id
       name
       genre {
-        nextToken
+        id
+        name
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
