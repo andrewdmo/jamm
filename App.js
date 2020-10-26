@@ -14,6 +14,12 @@ import ButtonAlpha from "./src/components/buttons/ButtonAlpha";
 
 Amplify.configure(config);
 
+// Amplify.configure({
+//     API: {
+//         graphql_endpoint: 'http://192.168.1.92:20002/graphql'
+//     }
+// });
+
 export default function App() {
     return (
         <View style={styles.container}>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Animated} from 'react-native';
+import {Animated, TouchableOpacity, BackHandler} from 'react-native';
 import favicon from '../assets/favicon.png';
 import {Easing} from "react-native-web";
 
@@ -46,22 +46,24 @@ export default class Logo extends Component {
             outputRange: ['0deg', '360deg'],
         });
         return (
-            <Animated.Image source={favicon}
-                            style={{
-                                flex: 1,
-                                resizeMode: 'contain',
-                                height: 125,
-                                width: 125,
-                                opacity: .8,
-                                transform: [
-                                    {rotate: animRotate},
-                                    {perspective: 1000}     // for Android
-                                ],
-                                zIndex: 5,
-                                overflow: 'visible'
-                            }}
+            <TouchableOpacity onPress={BackHandler.exitApp()}>
+                <Animated.Image source={favicon}
+                                style={{
+                                    flex: 1,
+                                    resizeMode: 'contain',
+                                    height: 125,
+                                    width: 125,
+                                    opacity: .8,
+                                    transform: [
+                                        {rotate: animRotate},
+                                        {perspective: 1000}     // for Android
+                                    ],
+                                    zIndex: 5,
+                                    overflow: 'visible'
+                                }}
 
-            />
+                />
+            </TouchableOpacity>
         );
     }
 }

@@ -21,20 +21,16 @@ export default class ButtonAlpha extends Component {
     }
 
     componentDidMount() {
-        // const initialState = {name: '', description: ''};
-        //
-        // const [formState] = useState(initialState);
-        // const [instruments] = useState([]);
 
         console.log('mounted');
 
-        const a = this.fetchInstruments;
-        console.log('fetch: ', a.toString());
+        const instruments = this.fetchInstruments;
+        console.log('fetch: ', instruments.toString());
 
 
-        // this.setState({
-        //     instruments: [instruments]
-        // });
+        this.setState({
+            instruments: [instruments]
+        });
     }
 
     async fetchInstruments() {
@@ -43,23 +39,22 @@ export default class ButtonAlpha extends Component {
 
         try {
 
-            const instrDataGQL = gql`
-                query listTodos {
-                    listTodos {
-                        items {
-                            id
-                            name
-                            description
-                        }
-                    }
-                }
-            `;
-            console.log('instrDataGQL: ', instrDataGQL);
-            const instrNames = instrDataGQL.data.name.map((description) => {
-                this.setState({
-                    instruments: [instrNames]
-                });
-            });
+            // const instrDataGQL = gql`
+            //     query listTodos {
+            //         items {
+            //             id
+            //             name
+            //             description
+            //         }
+            //     }
+            //
+            // `;
+            // console.log('instrDataGQL: ', instrDataGQL);
+            // const instrNames = instrDataGQL.data.name.map((description) => {
+            //     this.setState({
+            //         instruments: [instrNames]
+            //     });
+            // });
 
             const instrData = await API.graphql({
                     query: `{
@@ -99,13 +94,14 @@ export default class ButtonAlpha extends Component {
     }
 
     render() {
-        // const instr = this.fetchInstruments().map;
+        const instr = this.fetchInstruments.map;
         // const instruments = this.state.instruments.map(instruments, index);
-        console.log('render state: ', this.state.instruments)
+
+        console.log('render state: ', instr);
         return (
             <View>
                 <ScrollView>
-                    <Text>{this.state.instruments}</Text>
+                    <Text>{instr}</Text>
                     {/*{this.state.instruments.map((instruments) => (*/}
                     {/*    <Text>{instruments}</Text>*/}
                     {/*))}*/}

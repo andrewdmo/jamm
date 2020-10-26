@@ -86,11 +86,14 @@ const styles = StyleSheet.create({
     },
 
     mapBox: {
-        flex: 1,
+        // flex: 1,
+        // position: 'absolute'
     },
 
     middle: {
         // flex: 4,
+        // position: 'absolute',
+        marginTop: '25%',
         // zIndex: 1,
         // backgroundColor: '#6699c2'
         // backgroundColor: "#f5f5f5"
@@ -111,7 +114,7 @@ const styles = StyleSheet.create({
 
     top: {
         // flex: 1,
-        // position: 'absolute',
+        position: 'absolute',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',

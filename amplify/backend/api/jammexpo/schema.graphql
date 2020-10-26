@@ -61,7 +61,7 @@ type Comment @model {
     content: String!
 }
 
-type Todo {
+type Todo @ model {
     id: ID!
     name: String!
     description: String

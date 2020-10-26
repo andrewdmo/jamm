@@ -17,7 +17,7 @@ export default class Index extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <View style={styles.mapBox}>
                     <MapRN style={styles.map}/>
                 </View>
@@ -25,7 +25,9 @@ export default class Index extends Component {
                     <TitleText style={styles.title}/>
                     <Logo style={styles.logo}/>
                 </View>
-                <ButtonAlpha/>
+                <View style={styles.middle}>
+                    <ButtonAlpha/>
+                </View>
             </View>
         );
     }
