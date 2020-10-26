@@ -22,10 +22,8 @@ export default class ButtonAlpha extends Component {
 
     componentDidMount() {
 
-        console.log('mounted');
-
-        const instruments = this.fetchInstruments;
-        console.log('fetch: ', instruments.toString());
+        const instruments = new this.fetchInstruments;
+        console.log('mount fetch: ', instruments.toString());
 
 
         this.setState({
