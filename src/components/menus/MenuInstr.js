@@ -76,20 +76,19 @@ export default class ButtonAlpha extends Component {
 
                 // authMode: 'AWS_IAM'
 
-            )
-                .then(() => {   // callback:
-                        console.log('instrNameData: ', instrNameData);
-                        // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
-                        // const instrNames = instrNameData.__type.enumValues;
-                        const instrNames = data.type.enumValues;
-                        // const [instrNames] = instrNameData.data.type.enumValues.map(index, description);
+            );     // await API
 
-                        this.setState({
-                                instruments: [instrNames]
-                            }
-                        );
-                    }
-                );     // await API
+            // callback:
+            console.log('instrNameData: ', instrNameData);
+            // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
+            // const instrNames = instrNameData.__type.enumValues;
+            const instrNames = instrNameData.__type.enumValues.description;
+            // const [instrNames] = instrNameData.data.type.enumValues.map(index, description);
+
+            this.setState({
+                    instruments: instrNames
+                }
+            );
 
 
             // .then(this.setState({instruments: {instruments}}
