@@ -1,5 +1,5 @@
 import React, {Component, useState, useEffect} from 'react';
-import {View, ScrollView, Text} from 'react-native';
+import {View, ScrollView, Text, ActivityIndicator} from 'react-native';
 import {API, graphqlOperation} from 'aws-amplify';
 import gql from 'graphql-tag';
 // import API, {graphqlOperation} from '@aws-amplify/api';
@@ -16,7 +16,8 @@ export default class ButtonAlpha extends Component {
         this.fetchInstruments = this.fetchInstruments.bind(this);
         this.state = {
             buttonPress: false,
-            instruments: []
+            instruments: [],
+            isLoading: true
         };
     }
 
@@ -36,7 +37,7 @@ export default class ButtonAlpha extends Component {
 
     async fetchInstruments() {
 
-        console.log('async fetch');
+        console.log('async fetch...');
 
         try {
 
@@ -74,22 +75,21 @@ export default class ButtonAlpha extends Component {
                 } //options
 
 
-                // authMode: 'AWS_IAM'
+            );    // await API
 
-            );     // await API
-
-            // callback:
-            console.log('instrNameData: ', instrNameData);
-            // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
-            // const instrNames = instrNameData.__type.enumValues;
-            const instrNames = instrNameData.__type.enumValues.description;
-            // const [instrNames] = instrNameData.data.type.enumValues.map(index, description);
-
-            this.setState({
-                    instruments: instrNames
-                }
-            );
-
+            if (instrNameData) {    // pseudo callback:
+                console.log('instrNameData: ', instrNameData);
+                // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
+                // const instrNames = instrNameData.__type.enumValues;
+                const instrNames = instrNameData.data.__type.enumValues;
+                console.log('instrNames: ', instrNames);
+                // const [instrNames] = instrNameData.data.type.enumValues.map(index, description);
+                this.setState({
+                        instruments: instrNames,
+                        isLoading: false
+                    }
+                );
+            }
 
             // .then(this.setState({instruments: {instruments}}
             // ));
@@ -116,14 +116,17 @@ export default class ButtonAlpha extends Component {
 
         console.log('render state: ', this.state.instruments);
         return (
-            <View>
-                <ScrollView>
-                    <Text>{this.state.instruments}</Text>
-                    {/*{this.state.instruments.map((instruments) => (*/}
-                    {/*    <Text>{instruments}</Text>*/}
-                    {/*))}*/}
-                </ScrollView>
-            </View>
+            <ScrollView>
+                {this.state.isLoading === true &&
+                <View style={styles.loadingWheel}>
+                    <ActivityIndicator size="small"/>
+                </View>
+                }
+                <Text>{this.state.instruments}</Text>
+                {/*{this.state.instruments.map((instruments) => (*/}
+                {/*    <Text>{instruments}</Text>*/}
+                {/*))}*/}
+            </ScrollView>
         )
     }
 }

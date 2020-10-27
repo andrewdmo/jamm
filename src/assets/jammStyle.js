@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'beige',
     },
 
+    loadingWheel: {
+        color: '#6699c2'
+    },
+
     logo: {
         flex: 1,
         justifyContent: 'center',
