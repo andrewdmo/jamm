@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import styles from '../../assets/jammStyle';
 import favicon from '../../assets/favicon.png';
 import {listInstruments} from '../../graphql/queries.js';
+import {getEnumValues} from "../../graphql/queries";
 
 
 export default class ButtonAlpha extends Component {
@@ -17,7 +18,6 @@ export default class ButtonAlpha extends Component {
             buttonPress: false,
             instruments: []
         };
-
     }
 
     componentDidMount() {
@@ -40,47 +40,57 @@ export default class ButtonAlpha extends Component {
 
         try {
 
-            // const instrDataGQL = gql`
-            //     query {
-            //         __type(name: "InstrumentName") {
-            //             name
-            //             enumValues{
-            //                 description
+            //     const instrDataGQL = gql`
+            //         query {
+            //             __type(name: "InstrumentName") {
+            //                 enumValues{
+            //                     description
+            //                 }
             //             }
             //         }
-            //     }
-            // `;
-            // console.log('instrDataGQL: ', instrDataGQL);
+            //     `;
+            //     console.log('instrDataGQL: ', instrDataGQL.toString());
             // const instrNames = instrDataGQL.data.description.map((description) => {
             //     this.setState({
             //         instruments: [instrNames]
             //     });
             // });
 
-            const instrData = await API.graphql({
+            // const instrNameData = await API.graphql(graphqlOperation(getEnumValues));
+            // console.log(instrNameData);
+
+
+            const instrNameData = await API.graphql({
                     query: `{
-                __type(name: "InstrumentName") {
-                    name
-                    enumValues{
-                        description
-                    }
-                }l
-            }`,
+                   __type(name: "InstrumentName") {
+                        name
+                        enumValues{
+                            description
+                            }
+                        }
+            }`
+                    // authMode: 'AWS_IAM'
+
+                } //options
+
 
                 // authMode: 'AWS_IAM'
 
+            )
+                .then(() => {   // callback:
+                        console.log('instrNameData: ', instrNameData);
+                        // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
+                        // const instrNames = instrNameData.__type.enumValues;
+                        const instrNames = data.type.enumValues;
+                        // const [instrNames] = instrNameData.data.type.enumValues.map(index, description);
 
-                // () => {   // callback:
-                //     console.log('instrData: ', instrData);
-                //     // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
-                //     const instrNames = instrData.data;
-                //
-                //     // this.setState({
-                //     //         instruments: [instrNames]
-                //     //     }
-                //     // );
-                }
-            );     // await API
+                        this.setState({
+                                instruments: [instrNames]
+                            }
+                        );
+                    }
+                );     // await API
+
 
             // .then(this.setState({instruments: {instruments}}
             // ));
@@ -89,7 +99,7 @@ export default class ButtonAlpha extends Component {
 
         } catch
             (err) {
-            console.log('error fetching instruments');
+            console.log('error fetching instruments', err);
         }
     }
 
@@ -102,14 +112,14 @@ export default class ButtonAlpha extends Component {
     }
 
     render() {
-        const instr = this.fetchInstruments.map;
+        // const instr = this.fetchInstruments.map;
         // const instruments = this.state.instruments.map(instruments, index);
 
-        console.log('render state: ', instr);
+        console.log('render state: ', this.state.instruments);
         return (
             <View>
                 <ScrollView>
-                    <Text>{instr}</Text>
+                    <Text>{this.state.instruments}</Text>
                     {/*{this.state.instruments.map((instruments) => (*/}
                     {/*    <Text>{instruments}</Text>*/}
                     {/*))}*/}

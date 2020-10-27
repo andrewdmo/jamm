@@ -23,6 +23,19 @@ type Instrument @model {
     genre: [Genre]
 }
 
+##########
+#type Query {
+##    getEnumValues(description: String!): [EnumKeyValue!]!
+#    getEnumValues(descriSption: String!): description!
+#
+#}
+#
+#type EnumKeyValue {
+#    key: String!
+#    value: String
+#}
+###########
+
 #KeyField MUST be the same on the both end of @connection attribute.
 
 type Genre @model {
@@ -63,7 +76,7 @@ type Comment @model {
     content: String!
 }
 
-type Todo @ model {
+type Todo @model {
     id: ID!
     name: String!
     description: String

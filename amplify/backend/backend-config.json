@@ -12,5 +12,13 @@
         }
       }
     }
+  },
+  "auth": {
+    "jammexpo4d34a992": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
   }
 }
