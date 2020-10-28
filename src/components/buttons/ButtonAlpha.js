@@ -34,7 +34,7 @@ export default class ButtonAlpha extends Component {
                     }
                 </TouchableOpacity>
                 {this.state.buttonPress === true &&
-                <ButtonBeta/>
+                <ButtonBeta style={styles.buttonBox}/>
                 }
             </View>
         )

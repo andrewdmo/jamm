@@ -19,11 +19,13 @@ export default class ButtonAlpha extends Component {
             instruments: [],
             isLoading: true
         };
+
     }
 
     componentDidMount() {
 
         const mountData = new this.fetchInstruments;
+
 
         // const mountInstr = mountData.data.description;
         //
@@ -35,31 +37,13 @@ export default class ButtonAlpha extends Component {
         // });
     }
 
+
     async fetchInstruments() {
+
 
         console.log('async fetch...');
 
         try {
-
-            //     const instrDataGQL = gql`
-            //         query {
-            //             __type(name: "InstrumentName") {
-            //                 enumValues{
-            //                     description
-            //                 }
-            //             }
-            //         }
-            //     `;
-            //     console.log('instrDataGQL: ', instrDataGQL.toString());
-            // const instrNames = instrDataGQL.data.description.map((description) => {
-            //     this.setState({
-            //         instruments: [instrNames]
-            //     });
-            // });
-
-            // const instrNameData = await API.graphql(graphqlOperation(getEnumValues));
-            // console.log(instrNameData);
-
 
             const instrNameData = await API.graphql({
                     query: `{
@@ -72,24 +56,34 @@ export default class ButtonAlpha extends Component {
             }`
                     // authMode: 'AWS_IAM'
 
-                } //options
+                },
+                {},
+                //options
+            );
+            const instrNames = instrNameData.data.__type.enumValues;
+            console.log('instrNames: ', instrNames);
 
 
-            );    // await API
+            // const instrNamesMapped = instrNames.map(instruments => {
+            //     this.setState({
+            //         instruments: [instruments],
+            //         isLoading: false
+            //     });
+            // });
+            // console.log('instrNamesMapped: ', instrNamesMapped);
 
-            if (instrNameData) {    // pseudo callback:
-                console.log('instrNameData: ', instrNameData);
-                // const [instrNames] = instrData.data.__type.enumValues.map('description', index );
-                // const instrNames = instrNameData.__type.enumValues;
-                const instrNames = instrNameData.data.__type.enumValues;
-                console.log('instrNames: ', instrNames);
-                // const [instrNames] = instrNameData.data.type.enumValues.map(index, description);
-                this.setState({
-                        instruments: instrNames,
-                        isLoading: false
-                    }
-                );
-            }
+            // await API
+
+            // if (instrNameData) {    // pseudo callback:
+            // console.log('instrNameData: ', instrNameData);
+            // const instrNames = instrNameData.data.__type.enumValues;
+            // // const instrNamesMapped = instrNames.map();
+            // console.log('instrNames: ', instrNames);
+            // this.setState({
+            //     instruments: [instrNames],
+            //     isLoading: false
+            // });
+            // }
 
             // .then(this.setState({instruments: {instruments}}
             // ));

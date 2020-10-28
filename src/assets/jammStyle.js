@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignSelf: 'center',
         marginTop: 50,
+        width: 'auto',
         borderWidth: 1,
         borderStyle: 'dashed',
         borderColor: "#be3b3b",
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
         marginTop: 25,
         borderWidth: 1,
         borderStyle: 'dashed',
-        borderColor: "#6699c2",
+        borderColor: '#6699c2',
     },
 
     buttonBoxMusician: {
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
+        // alignItems: 'center',
         backgroundColor: 'beige',
     },
 
@@ -86,18 +88,21 @@ const styles = StyleSheet.create({
     },
 
     map: {
-        flex: 1,
+        // flex: 1,
     },
 
     mapBox: {
-        // flex: 1,
-        // position: 'absolute'
+        flex: 1,
+        position: 'absolute'
     },
 
     middle: {
         // flex: 4,
         // position: 'absolute',
+        justifyContent: 'space-around',
+        alignItems: 'center',
         marginTop: '25%',
+        // width: ''
         // zIndex: 1,
         // backgroundColor: '#6699c2'
         // backgroundColor: "#f5f5f5"
