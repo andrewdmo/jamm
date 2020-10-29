@@ -61,16 +61,17 @@ export default class ButtonAlpha extends Component {
                 {},
                 //options
             );
-            const instrNames = instrNameData.data.__type.enumValues.map((description) => {
+            const instrNames = instrNameData.data.__type.enumValues.map((description = "", index, []) => {
                     console.log('.map instraNames: ', instrNames);
                     console.log('.map description: ', description);
 
                     this.setState({
-                        instruments: instrNames
+                        // instruments: instrNames
+                        instruments: description
                     });
                 }
             );
-            console.log('instrNames: ', instrNames);
+            // console.log('instrNames: ', instrNames);
             // setInstruments(instrNames);
 
 
