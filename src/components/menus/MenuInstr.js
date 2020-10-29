@@ -3,6 +3,7 @@ import {View, ScrollView, Text, ActivityIndicator} from 'react-native';
 import {API, graphqlOperation} from 'aws-amplify';
 import gql from 'graphql-tag';
 // import API, {graphqlOperation} from '@aws-amplify/api';
+import {MenuInstrHook} from './MenuInstrHook';
 import styles from '../../assets/jammStyle';
 import favicon from '../../assets/favicon.png';
 import {listInstruments} from '../../graphql/queries.js';
@@ -13,32 +14,32 @@ export default class ButtonAlpha extends Component {
     constructor(props) {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
-        this.fetchInstruments = this.fetchInstruments.bind(this);
+        // this.fetchInstruments = this.fetchInstruments.bind(this);
         this.state = {
             buttonPress: false,
             instruments: [],
             isLoading: true
         };
-
     }
 
     componentDidMount() {
 
-        const mountData = new this.fetchInstruments;
+        // const mountData = new this.fetchInstruments;
 
 
         // const mountInstr = mountData.data.description;
         //
         // console.log('mount fetch: ', mountInstr.toString());
 
+        // const instruments = MenuInstrHook();
 
-        // this.setState({
-        //     instruments: [instruments]
-        // });
+        this.setState({
+            instruments: this.FetchInstruments(),
+            // isLoading: false //todo
+        });
     }
 
-
-    async fetchInstruments() {
+    async FetchInstruments() {
 
 
         console.log('async fetch...');
@@ -60,39 +61,23 @@ export default class ButtonAlpha extends Component {
                 {},
                 //options
             );
-            const instrNames = instrNameData.data.__type.enumValues;
+            const instrNames = instrNameData.data.__type.enumValues.map((description) => {
+                    console.log('.map instraNames: ', instrNames);
+                    console.log('.map description: ', description);
+
+                    this.setState({
+                        instruments: instrNames
+                    });
+                }
+            );
             console.log('instrNames: ', instrNames);
-
-
-            // const instrNamesMapped = instrNames.map(instruments => {
-            //     this.setState({
-            //         instruments: [instruments],
-            //         isLoading: false
-            //     });
-            // });
-            // console.log('instrNamesMapped: ', instrNamesMapped);
-
-            // await API
-
-            // if (instrNameData) {    // pseudo callback:
-            // console.log('instrNameData: ', instrNameData);
-            // const instrNames = instrNameData.data.__type.enumValues;
-            // // const instrNamesMapped = instrNames.map();
-            // console.log('instrNames: ', instrNames);
-            // this.setState({
-            //     instruments: [instrNames],
-            //     isLoading: false
-            // });
-            // }
-
-            // .then(this.setState({instruments: {instruments}}
-            // ));
-            // const instData = await API.graphql({query: queries.listInstruments});
+            // setInstruments(instrNames);
 
 
         } catch
             (err) {
             console.log('error fetching instruments', err);
+            return err;
         }
     }
 
@@ -116,7 +101,8 @@ export default class ButtonAlpha extends Component {
                     <ActivityIndicator size="small"/>
                 </View>
                 }
-                <Text>{this.state.instruments}</Text>
+                {/*<Text>{this.state.instruments}</Text>*/}
+                {/*<MenuInstrHook/>*/}
                 {/*{this.state.instruments.map((instruments) => (*/}
                 {/*    <Text>{instruments}</Text>*/}
                 {/*))}*/}
