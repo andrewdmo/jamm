@@ -24,7 +24,7 @@ export default class ButtonAlpha extends Component {
 
     componentDidMount() {
 
-        // const mountData = new this.fetchInstruments;
+        const mountData = new this.FetchInstruments;
 
 
         // const mountInstr = mountData.data.description;
@@ -33,10 +33,10 @@ export default class ButtonAlpha extends Component {
 
         // const instruments = MenuInstrHook();
 
-        this.setState({
-            instruments: this.FetchInstruments(),
-            // isLoading: false //todo
-        });
+        // this.setState({
+        //     instruments: this.FetchInstruments(),
+        //     // isLoading: false //todo
+        // });
     }
 
     async FetchInstruments() {
@@ -62,15 +62,18 @@ export default class ButtonAlpha extends Component {
                 //options
             );
             const instrNames = instrNameData.data.__type.enumValues.map((description = "", index, []) => {
-                    console.log('.map instraNames: ', instrNames);
-                    console.log('.map description: ', description);
 
-                    this.setState({
-                        // instruments: instrNames
-                        instruments: description
-                    });
+                    console.log('.map instraNames: ', instrNames);
+
+                    console.log('.map index + description: ', index + 1, Object.values(description).toLocaleString());
+
+                    // this.setState({
+                    //     // instruments: instrNames
+                    //     instruments: description
+                    // });
                 }
             );
+
             // console.log('instrNames: ', instrNames);
             // setInstruments(instrNames);
 
