@@ -14,7 +14,7 @@ export default class ButtonAlpha extends Component {
     constructor(props) {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
-        // this.fetchInstruments = this.fetchInstruments.bind(this);
+        this.fetchInstruments = this.fetchInstruments.bind(this);
         this.state = {
             buttonPress: false,
             instruments: [],
@@ -24,8 +24,24 @@ export default class ButtonAlpha extends Component {
 
     componentDidMount() {
 
-        const mountData = new this.FetchInstruments;
+        const mountData = new this.fetchInstruments;
 
+        console.log('mountData: ', mountData);
+
+        // const instrNames = mountData.data.__type.enumValues.map((description = "", index) => {
+        //
+        //         // console.log('.map instraNames: ', instrNames);
+        //
+        //         console.log('.map index + description: ', index + 1, Object.values(description).toLocaleString());
+        //
+        //         const instrName = Object.values(description).toLocaleString();
+        //
+        //         this.setState({
+        //             // instruments: instrNames
+        //             instruments: [instrName]
+        //         });
+        //     }
+        // );
 
         // const mountInstr = mountData.data.description;
         //
@@ -39,16 +55,16 @@ export default class ButtonAlpha extends Component {
         // });
     }
 
-    async FetchInstruments() {
+    async fetchInstruments() {
 
 
         console.log('async fetch...');
 
         try {
 
-            const instrNameData = await API.graphql({
+            const instraData = await API.graphql({
                     query: `{
-                   __type(name: "InstrumentName") {
+                   __type(name: "GenreName") {
                         name
                         enumValues{
                             description
@@ -61,20 +77,24 @@ export default class ButtonAlpha extends Component {
                 {},
                 //options
             );
-            const instrNames = instrNameData.data.__type.enumValues.map((description = "", index, []) => {
+            const [instrNames] = instraData.data.__type.enumValues.map((description, index) => {
 
-                    console.log('.map instraNames: ', instrNames);
+                    // console.log('.map instraNames: ', instrNames);
 
-                    console.log('.map index + description: ', index + 1, Object.values(description).toLocaleString());
+                    const instrName = Object.values(description).toLocaleString();
 
-                    // this.setState({
-                    //     // instruments: instrNames
-                    //     instruments: description
-                    // });
+                    console.log('.map index + description: ', index + 1, instrName);
+
+
                 }
             );
+            // this.setState({
+            //     // instruments: instrNames
+            //     instruments: instrNames
+            // });
 
-            // console.log('instrNames: ', instrNames);
+
+            console.log('instrNames: ', instrNames);
             // setInstruments(instrNames);
 
 

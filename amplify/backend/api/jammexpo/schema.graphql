@@ -23,24 +23,12 @@ type Instrument @model {
     genre: [Genre]
 }
 
-##########
-#type Query {
-##    getEnumValues(description: String!): [EnumKeyValue!]!
-#    getEnumValues(descriSption: String!): description!
-#
-#}
-#
-#type EnumKeyValue {
-#    key: String!
-#    value: String
-#}
-###########
-
 #KeyField MUST be the same on the both end of @connection attribute.
 
 type Genre @model {
     id: ID!
     name: GenreName!
+    subGenre: [SubGenreName]
     instruments: [Instrument]
 }
 
@@ -80,6 +68,105 @@ type Todo @model {
     id: ID!
     name: String!
     description: String
+}
+
+enum GenreName{
+    "Avant-Garde"
+    AVANT_GARDE
+
+    "Blues"
+    BLUES
+
+    "Caribbean"
+    CARIBBEAN
+
+    "Country"
+    COUNTRY
+
+    "Electronic"
+    ELECTRONIC
+
+    "Folk"
+    FOLK
+
+    "Hip Hop"
+    HIP_HOP
+
+    "Jazz"
+    JAZZ
+
+    "Latin"
+    LATIN
+
+    "Pop"
+    POP
+
+    "R&B + Soul"
+    RB_SOUL
+}
+
+enum SubGenreName {
+    EXPERIMENTAL
+    NOISE
+    BLUES_ROCK
+    CHICAGO_BLUES
+    CONTEMPORARY_RNB
+    COUNTRY_BLUES
+    DELTA_BLUES
+    ELECTRIC_BLUES
+    PIEDMONT_BLUES
+    CALYPSO
+    REGGAE
+    SKA
+    SALSA
+    ALTERNATIVE_COUNTRY
+    AMERICANA
+    BLUEGRASS
+    CLASSIC_COUNTRY
+    POP_COUNTRY
+    HONKY_TONK
+    OUTLAW_COUNTRY
+    ROCKABILLY
+    WESTERN_SWING
+    ZYDECO
+    AMBIENT
+    DOWNTEMPO
+    DRUM_AND_BASS
+    DUB
+    NEW_WAVE
+    ELECTRONICA
+    HOUSE
+    INDUSTRIAL
+    NOISE_MUSIC
+    TECHNO
+    TRANCE
+    CELTIC
+    INDIE_FOLK
+    SINGER_SONGWRITER
+    TRADITIONAL_FOLK
+    RAP
+    LOFI
+    MUMBLE_RAP
+    TRAP
+    ACID_JAZZ
+    AFRO_CUBAN_JAZZ
+    AVANT_GARDE_JAZZ
+    BEBOP
+    BOOGIE_WOOGIE
+    BOSA_NOVA
+    COOL_JAZZ
+    DIXIELAND_JAZZ
+    FREE_JAZZ
+    GYPSY_JAZZ
+    HARD_BOP
+    LATIN_JAZZ
+    RAGTIME
+    SMOOTH_JAZZ
+    SOUL_JAZZ
+    SWING_JAZZ
+    TRAD_JAZZ
+    MAMBO
+    SAMBA
 }
 
 enum InstrumentName {
@@ -249,8 +336,3 @@ enum InstrumentName {
     XYLOPHONE
 }
 
-enum GenreName {
-    BLUES
-    ROCK
-    RAP
-}

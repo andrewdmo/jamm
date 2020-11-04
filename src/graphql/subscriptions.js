@@ -47,6 +47,7 @@ export const onCreateMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -63,6 +64,7 @@ export const onUpdateMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -79,6 +81,7 @@ export const onDeleteMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -96,6 +99,7 @@ export const onCreateInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -112,6 +116,7 @@ export const onUpdateInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -128,6 +133,7 @@ export const onDeleteInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -141,6 +147,7 @@ export const onCreateGenre = /* GraphQL */ `
     onCreateGenre {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -157,6 +164,7 @@ export const onUpdateGenre = /* GraphQL */ `
     onUpdateGenre {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -173,6 +181,7 @@ export const onDeleteGenre = /* GraphQL */ `
     onDeleteGenre {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -191,6 +200,7 @@ export const onCreateVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -212,6 +222,7 @@ export const onUpdateVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -233,6 +244,7 @@ export const onDeleteVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }

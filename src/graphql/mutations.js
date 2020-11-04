@@ -59,6 +59,7 @@ export const createMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -78,6 +79,7 @@ export const updateMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -97,6 +99,7 @@ export const deleteMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -117,6 +120,7 @@ export const createInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -136,6 +140,7 @@ export const updateInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -155,6 +160,7 @@ export const deleteInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -171,6 +177,7 @@ export const createGenre = /* GraphQL */ `
     createGenre(input: $input, condition: $condition) {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -190,6 +197,7 @@ export const updateGenre = /* GraphQL */ `
     updateGenre(input: $input, condition: $condition) {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -209,6 +217,7 @@ export const deleteGenre = /* GraphQL */ `
     deleteGenre(input: $input, condition: $condition) {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -230,6 +239,7 @@ export const createVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -254,6 +264,7 @@ export const updateVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -278,6 +289,7 @@ export const deleteVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }

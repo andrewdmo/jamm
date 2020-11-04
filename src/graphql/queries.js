@@ -41,6 +41,7 @@ export const getMusician = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -75,6 +76,7 @@ export const getInstrument = /* GraphQL */ `
       genre {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -105,6 +107,7 @@ export const getGenre = /* GraphQL */ `
     getGenre(id: $id) {
       id
       name
+      subGenre
       instruments {
         id
         name
@@ -126,6 +129,7 @@ export const listGenres = /* GraphQL */ `
       items {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
@@ -140,6 +144,7 @@ export const getVenue = /* GraphQL */ `
       genres {
         id
         name
+        subGenre
         createdAt
         updatedAt
       }
