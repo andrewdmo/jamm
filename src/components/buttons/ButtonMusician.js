@@ -4,7 +4,11 @@ import styles from '../../assets/jammStyle';
 import favicon from '../../assets/favicon.png';
 import musicNote from '../../assets/music-note-md.png';
 
-import MenuInstrument from '../menus/MenuInstr';
+// import MenuInstrument from '../menus/MenuInstr';
+import MenuInstrHook from '../menus/MenuInstrHook';
+import MenuInstr from "../menus/MenuInstr";
+
+
 
 export default class ButtonMusician extends Component {
 
@@ -44,11 +48,12 @@ export default class ButtonMusician extends Component {
     }
 
     otherButtonPress() {
+
         this.setState({otherButtonPress: !this.state.otherButtonPress});
     }
 
     render() {
-
+        // const InstrumentList = new MenuInstrHook();
         return (
             <View>
                 <Text style={styles.buttonText}>Do you play...:</Text>
@@ -118,7 +123,9 @@ export default class ButtonMusician extends Component {
                             Other >>
                         </Text>
                         {this.state.otherButtonPress === true &&
-                        <MenuInstrument/>
+                        <View>
+                            <MenuInstr/>
+                        </View>
                         }
                     </TouchableOpacity>
                 </View>

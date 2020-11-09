@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import {API} from "aws-amplify";
 import styles from "../../assets/jammStyle";
 
-export function MenuInstrHook(props) {
+const MenuInstrHook = (props) => {
 
     const [instruments, setInstruments] = useState([]);
 
@@ -16,14 +16,13 @@ export function MenuInstrHook(props) {
 
     async function FetchInstruments() {
 
-
-        // console.log('async fetch...');
+        console.log('async fetch...');
 
         try {
 
             const instrNameData = await API.graphql({
                     query: `{
-                   __type(name: "InstrumentName") {
+                   __type(name: "GenreName") {
                         name
                         enumValues{
                             description
@@ -36,11 +35,22 @@ export function MenuInstrHook(props) {
                 {},
                 //options
             );
-            const instrNames = instrNameData.data.__type.enumValues;
-            console.log('instrNames: ', instrNames);
+            const instrNames = instraData.data.__type.enumValues.map((description, index) => {
+
+                // console.log('.map instraNames: ', instrNames);
+
+                const instrName = Object.values(description).toLocaleString();
+
+                console.log('.map index + description: ', index + 1, instrName);
+
+            });
             setInstruments(instrNames);
 
-            return instrNames;
+            return (
+                <Text>
+                    {useState(instrNames)}
+                </Text>
+            );
 
 
         } catch
@@ -50,5 +60,7 @@ export function MenuInstrHook(props) {
         }
     }
 }
+
+export default MenuInstrHook;
 
 // Declare a new state variable, which we'll call "count"  const [count, setCount] = useState(0);

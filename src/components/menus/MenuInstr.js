@@ -10,7 +10,7 @@ import {listInstruments} from '../../graphql/queries.js';
 import {getEnumValues} from "../../graphql/queries";
 
 
-export default class ButtonAlpha extends Component {
+export default class MenuInstr extends Component {
     constructor(props) {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
@@ -57,7 +57,6 @@ export default class ButtonAlpha extends Component {
 
     async fetchInstruments() {
 
-
         console.log('async fetch...');
 
         try {
@@ -77,17 +76,15 @@ export default class ButtonAlpha extends Component {
                 {},
                 //options
             );
-            const [instrNames] = instraData.data.__type.enumValues.map((description, index) => {
+            const instrNames = instraData.data.__type.enumValues.map((description, index) => {
 
-                    // console.log('.map instraNames: ', instrNames);
+                // console.log('.map instraNames: ', instrNames);
 
-                    const instrName = Object.values(description).toLocaleString();
+                const instrName = Object.values(description).toLocaleString();
 
-                    console.log('.map index + description: ', index + 1, instrName);
+                console.log('.map index + description: ', index + 1, instrName);
 
-
-                }
-            );
+            });
             // this.setState({
             //     // instruments: instrNames
             //     instruments: instrNames
@@ -125,11 +122,11 @@ export default class ButtonAlpha extends Component {
                     <ActivityIndicator size="small"/>
                 </View>
                 }
-                {/*<Text>{this.state.instruments}</Text>*/}
+                <Text>{this.state.instruments}</Text>
                 {/*<MenuInstrHook/>*/}
-                {/*{this.state.instruments.map((instruments) => (*/}
-                {/*    <Text>{instruments}</Text>*/}
-                {/*))}*/}
+                {this.state.instruments.map((instruments) => (
+                    <Text>{instruments}</Text>
+                ))}
             </ScrollView>
         )
     }
