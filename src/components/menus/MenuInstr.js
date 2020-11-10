@@ -15,6 +15,7 @@ export default class MenuInstr extends Component {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
         this.fetchInstruments = this.fetchInstruments.bind(this);
+        this.fetchState = this.fetchState.bind(this);
         this.state = {
             buttonPress: false,
             instruments: [],
@@ -25,34 +26,41 @@ export default class MenuInstr extends Component {
     componentDidMount() {
 
         const mountData = new this.fetchInstruments;
-
         console.log('mountData: ', mountData);
 
-        // const instrNames = mountData.data.__type.enumValues.map((description = "", index) => {
+        // const instrData = mountData.data.__type.enumValues.map((mountData) => {
+        //     console.log('.map : ', mountData);
         //
-        //         // console.log('.map instraNames: ', instrNames);
-        //
-        //         console.log('.map index + description: ', index + 1, Object.values(description).toLocaleString());
-        //
-        //         const instrName = Object.values(description).toLocaleString();
-        //
-        //         this.setState({
-        //             // instruments: instrNames
-        //             instruments: [instrName]
-        //         });
-        //     }
-        // );
+        //     // this.setState({
+        //     //     instruments: {mountData}
+        //     // });
+        // });
 
-        // const mountInstr = mountData.data.description;
-        //
-        // console.log('mount fetch: ', mountInstr.toString());
 
-        // const instruments = MenuInstrHook();
+        // console.log('mountData: ', mountData);
+
+
+        // this.setState({
+        //     // instruments: instrNames
+        //     instruments: mountData.then((mountData) => {
+        //
+        //     })
+        // });
+
 
         // this.setState({
         //     instruments: this.FetchInstruments(),
         //     // isLoading: false //todo
         // });
+
+    }   //didMount
+
+    fetchState(T) {
+        this.setState({
+            // instruments: instrNames
+            instruments: T
+        });
+
     }
 
     async fetchInstruments() {
@@ -61,7 +69,7 @@ export default class MenuInstr extends Component {
 
         try {
 
-            const instraData = await API.graphql({
+            const instrData = await API.graphql({
                     query: `{
                    __type(name: "GenreName") {
                         name
@@ -75,23 +83,15 @@ export default class MenuInstr extends Component {
                 },
                 {},
                 //options
-            );
-            const instrNames = instraData.data.__type.enumValues.map((description, index) => {
+            ).then((T) => {
 
-                // console.log('.map instraNames: ', instrNames);
+                // console.log('await.then T: ', T);
+                return T;   //KEEP!!
 
-                const instrName = Object.values(description).toLocaleString();
+            }); //await.then
 
-                console.log('.map index + description: ', index + 1, instrName);
-
-            });
-            // this.setState({
-            //     // instruments: instrNames
-            //     instruments: instrNames
-            // });
-
-
-            console.log('instrNames: ', instrNames);
+            console.log('instrData: ', instrData);
+            // console.log('instrNames: ', instrNames);
             // setInstruments(instrNames);
 
 
@@ -111,10 +111,10 @@ export default class MenuInstr extends Component {
     }
 
     render() {
-        // const instr = this.fetchInstruments.map;
+        const instr = this.fetchInstruments.map;
         // const instruments = this.state.instruments.map(instruments, index);
-
-        console.log('render state: ', this.state.instruments);
+        const time = new Date();
+        console.log('render state: ', time.toTimeString(), this.state.instruments);
         return (
             <ScrollView>
                 {this.state.isLoading === true &&
