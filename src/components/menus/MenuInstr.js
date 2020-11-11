@@ -1,13 +1,7 @@
-import React, {Component, useState, useEffect} from 'react';
-import {View, ScrollView, Text, ActivityIndicator} from 'react-native';
-import {API, graphqlOperation} from 'aws-amplify';
-import gql from 'graphql-tag';
-// import API, {graphqlOperation} from '@aws-amplify/api';
-import {MenuInstrHook} from './MenuInstrHook';
+import React, {Component} from 'react';
+import {ActivityIndicator, ScrollView, Text, View} from 'react-native';
+import {API} from 'aws-amplify';
 import styles from '../../assets/jammStyle';
-import favicon from '../../assets/favicon.png';
-import {listInstruments} from '../../graphql/queries.js';
-import {getEnumValues} from "../../graphql/queries";
 
 
 export default class MenuInstr extends Component {
@@ -15,7 +9,6 @@ export default class MenuInstr extends Component {
         super(props);
         this.buttonPress = this.buttonPress.bind(this);
         this.fetchInstruments = this.fetchInstruments.bind(this);
-        this.fetchState = this.fetchState.bind(this);
         this.state = {
             buttonPress: false,
             instruments: [],
@@ -25,13 +18,12 @@ export default class MenuInstr extends Component {
 
     componentDidMount() {
 
-        const mountData = this.fetchInstruments;
+        const mountData = this.fetchInstruments;    // just the function
         const mountInstr = mountData().then((T) => {
-                console.log('mountInstr: ', T);
+                // console.log('mountInstr: ', T);
                 const instrData = T.data.__type.enumValues.map((mappedData) => {
                     const instr = Object.values(mappedData).toLocaleString();
                     console.log('.map : ', instr);
-                    const instrState = this.state.instruments;
                     this.setState({
                         instruments: [...this.state.instruments, instr]
                     });
@@ -39,38 +31,14 @@ export default class MenuInstr extends Component {
 
             }
         )
-        console.log('mountData: ', mountData);
-
-        // const instrData = mountData.data.__type.enumValues.map((mountData) => {
-        //     console.log('.map : ', mountData);
-        //
-        //     // this.setState({
-        //     //     instruments: {mountData}
-        //     // });
-        // });
-
-
-        // this.setState({
-        //     instruments: this.FetchInstruments(),
-        //     // isLoading: false //todo
-        // });
-
+        // console.log('mountData: ', mountData);
     }   //didMount
 
-    fetchState(T) {
-        this.setState({
-            // instruments: instrNames
-            instruments: T
-        });
-
-    }
-
     async fetchInstruments() {
-
         console.log('async fetch...');
-
         try {
-            const instrData = await API.graphql({
+            // console.log('instrData: ', instrData);
+            return await API.graphql({
                     query: `{
                    __type(name: "GenreName") {
                         name
@@ -80,22 +48,13 @@ export default class MenuInstr extends Component {
                         }
             }`
                     // authMode: 'AWS_IAM'
-
-                },
+                },  //await options
                 {},
-                //options
-            ).then((T) => {
-
-                // console.log('await.then T: ', T);
-                return T;   //KEEP!!
-
-            }); //await.then
-
-            console.log('instrData: ', instrData);
-
-            return instrData;
-            // console.log('instrNames: ', instrNames);
-            // setInstruments(instrNames);
+            )
+                .then((T) => {
+                    // console.log('await.then T: ', T);
+                    return T;   //KEEP!!
+                });     //await.then
 
 
         } catch
@@ -127,19 +86,7 @@ export default class MenuInstr extends Component {
                     return (
                         <Text>{instrRender}</Text>)
                 })}
-                {/*<MenuInstrHook/>*/}
-                {/*{this.state.instruments.map((instruments) => (*/}
-                {/*    <Text>{instruments}</Text>*/}
-                {/*))}*/}
             </ScrollView>
         )
     }
 }
-
-// {
-//     instruments.map((instr, index) => (
-//         <View key={instruments.id ? instruments.id : index}>
-//             <Text style={styles.buttonText}>{instruments.name}</Text>
-//         </View>
-//     ))
-// }
