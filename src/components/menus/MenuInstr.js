@@ -123,7 +123,10 @@ export default class MenuInstr extends Component {
                     <ActivityIndicator size="small"/>
                 </View>
                 }
-                <Text>{this.state.instruments}</Text>
+                {this.state.instruments.map((instrRender) => {
+                    return (
+                        <Text>{instrRender}</Text>)
+                })}
                 {/*<MenuInstrHook/>*/}
                 {/*{this.state.instruments.map((instruments) => (*/}
                 {/*    <Text>{instruments}</Text>*/}
