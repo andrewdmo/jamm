@@ -25,7 +25,20 @@ export default class MenuInstr extends Component {
 
     componentDidMount() {
 
-        const mountData = new this.fetchInstruments;
+        const mountData = this.fetchInstruments;
+        const mountInstr = mountData().then((T) => {
+                console.log('mountInstr: ', T);
+                const instrData = T.data.__type.enumValues.map((mappedData) => {
+                    const instr = Object.values(mappedData).toLocaleString();
+                    console.log('.map : ', instr);
+                    const instrState = this.state.instruments;
+                    this.setState({
+                        instruments: [...this.state.instruments, instr]
+                    });
+                });
+
+            }
+        )
         console.log('mountData: ', mountData);
 
         // const instrData = mountData.data.__type.enumValues.map((mountData) => {
@@ -34,17 +47,6 @@ export default class MenuInstr extends Component {
         //     // this.setState({
         //     //     instruments: {mountData}
         //     // });
-        // });
-
-
-        // console.log('mountData: ', mountData);
-
-
-        // this.setState({
-        //     // instruments: instrNames
-        //     instruments: mountData.then((mountData) => {
-        //
-        //     })
         // });
 
 
@@ -68,7 +70,6 @@ export default class MenuInstr extends Component {
         console.log('async fetch...');
 
         try {
-
             const instrData = await API.graphql({
                     query: `{
                    __type(name: "GenreName") {
@@ -91,6 +92,8 @@ export default class MenuInstr extends Component {
             }); //await.then
 
             console.log('instrData: ', instrData);
+
+            return instrData;
             // console.log('instrNames: ', instrNames);
             // setInstruments(instrNames);
 
@@ -111,8 +114,6 @@ export default class MenuInstr extends Component {
     }
 
     render() {
-        const instr = this.fetchInstruments.map;
-        // const instruments = this.state.instruments.map(instruments, index);
         const time = new Date();
         console.log('render state: ', time.toTimeString(), this.state.instruments);
         return (
@@ -124,9 +125,9 @@ export default class MenuInstr extends Component {
                 }
                 <Text>{this.state.instruments}</Text>
                 {/*<MenuInstrHook/>*/}
-                {this.state.instruments.map((instruments) => (
-                    <Text>{instruments}</Text>
-                ))}
+                {/*{this.state.instruments.map((instruments) => (*/}
+                {/*    <Text>{instruments}</Text>*/}
+                {/*))}*/}
             </ScrollView>
         )
     }
