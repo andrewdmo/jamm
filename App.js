@@ -2,7 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import React from 'react';
 import {View} from 'react-native';
 import Amplify from 'aws-amplify';
-import config from './aws-exports';
+import awsmobile from './aws-exports';
 
 import MapRN from './src/components/MapRN';
 import Index from './src/components/Index';
@@ -12,7 +12,7 @@ import TitleText from "./src/components/TitleText";
 import Logo from "./src/components/Logo";
 import ButtonAlpha from "./src/components/buttons/ButtonAlpha";
 
-Amplify.configure(config);
+Amplify.configure(awsmobile);
 
 // Amplify.configure({
 //     API: {

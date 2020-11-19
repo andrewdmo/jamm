@@ -12,7 +12,7 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
+    "emailVerificationSubject": "jamm app login verification",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
@@ -49,11 +49,13 @@
     "usernameAttributes": [
         "email"
     ],
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+        "cancel"
+    ],
     "serviceName": "Cognito",
     "dependsOn": [],
     "thirdPartyAuth": false,
-    "userPoolGroups": false,
+    "userPoolGroups": true,
     "adminQueries": false,
     "triggers": "{}",
     "hostedUI": false,

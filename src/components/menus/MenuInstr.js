@@ -18,19 +18,17 @@ export default class MenuInstr extends Component {
 
     componentDidMount() {
 
-        const mountData = this.fetchInstruments;    // just the function
+        const mountData = this.fetchInstruments;    // just (uncalled) function
         const mountInstr = mountData().then((T) => {
-                // console.log('mountInstr: ', T);
-                const instrData = T.data.__type.enumValues.map((mappedData) => {
-                    const instr = Object.values(mappedData).toLocaleString();
-                    console.log('.map : ', instr);
-                    this.setState({
-                        instruments: [...this.state.instruments, instr]
-                    });
-                });
-
-            }
-        )
+            console.log('mountInstr: ', T);
+            // const instrData = T.data.__type.enumValues.map((mappedData) => {
+            //     const instr = Object.values(mappedData).toLocaleString();
+            //     console.log('.map : ', instr);
+            //     this.setState({
+            //         instruments: [...this.state.instruments, instr]
+            //     });
+            // });
+        })
         // console.log('mountData: ', mountData);
     }   //didMount
 
@@ -46,12 +44,19 @@ export default class MenuInstr extends Component {
                             description
                             }
                         }
-            }`
-                    // authMode: 'AWS_IAM'
+            }`,
+                    authMode: 'AWS_IAM'
                 },  //await options
                 {},
             )
                 .then((T) => {
+                    const instrData = T.data.__type.enumValues.map((mappedData) => {
+                        const instr = Object.values(mappedData).toLocaleString();
+                        console.log('.map : ', instr);
+                        this.setState({
+                            instruments: [...this.state.instruments, instr]
+                        });
+                    });
                     // console.log('await.then T: ', T);
                     return T;   //KEEP!!
                 });     //await.then
@@ -82,7 +87,7 @@ export default class MenuInstr extends Component {
                     <ActivityIndicator size="small"/>
                 </View>
                 }
-                {this.state.instruments.map((instrRender) => {
+                {this.state.instruments.map((instrRender, index) => {
                     return (
                         <Text>{instrRender}</Text>)
                 })}
